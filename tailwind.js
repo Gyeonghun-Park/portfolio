@@ -17,6 +17,8 @@ module.exports = {
       current: "currentColor",
 
       home: "#222222",
+      nav: "#181818",
+      prime: "#08fdd8",
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,

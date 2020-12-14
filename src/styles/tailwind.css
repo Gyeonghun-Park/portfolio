@@ -5,5 +5,10 @@
 @layer base {
   body {
     @apply bg-home;
+    @apply h-full;
+  }
+
+  html {
+    @apply h-full;
   }
 }

@@ -10,27 +10,29 @@ import Navigation from "../components/Navigation";
 const MyRouter = () => {
   return (
     <Router>
-      <Navigation />
-      <Switch>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/skills">
-          <Skills />
-        </Route>
-        <Route path="/portfolio">
-          <Portfolio />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route>
-          <NotFound />
-        </Route>
-      </Switch>
+      <div className="flex h-full">
+        <Navigation />
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/skills">
+            <Skills />
+          </Route>
+          <Route path="/portfolio">
+            <Portfolio />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
+      </div>
     </Router>
   );
 };
