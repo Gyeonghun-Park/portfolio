@@ -1,5 +1,7 @@
+import Container from "../components/Container";
+
 const Home = () => {
-  return <div className="text-whit">Home</div>;
+  return <Container />;
 };
 
 export default Home;

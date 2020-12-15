@@ -19,6 +19,7 @@ module.exports = {
       home: "#222222",
       nav: "#181818",
       prime: "#08fdd8",
+      tag: "#515152",
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
@@ -174,6 +175,7 @@ module.exports = {
       DEFAULT: "1",
     },
     fontFamily: {
+      tag: ["'La Belle Aurore'", "cursive"],
       sans: [
         "ui-sans-serif",
         "system-ui",
