@@ -2,21 +2,32 @@ import { useEffect, useRef } from "react";
 
 const AnimationText = ({ text, milliseconds }) => {
   const textRef = useRef();
+  let isFinshied = false;
+  let timeouts;
+
+  const later = () => {
+    return new Promise((resolve) => {
+      timeouts = setTimeout(resolve, milliseconds, true);
+    }).then((result) => {
+      textRef.current.classList.add("animate__bounceIn");
+      isFinshied = result;
+    });
+  };
 
   useEffect(() => {
-    setTimeout(
-      () => textRef.current.classList.add("animate__bounceIn"),
-      milliseconds
-    );
+    later();
+    return () => clearTimeout(timeouts);
   });
 
   const addAnimation = () => {
-    textRef.current.classList.remove("animate__bounceIn");
-    textRef.current.classList.remove("opacity-0");
-    textRef.current.classList.add("animate__rubberBand");
-    textRef.current.onanimationend = () => {
-      textRef.current.classList.remove("animate__rubberBand");
-    };
+    if (isFinshied) {
+      textRef.current.classList.remove("animate__bounceIn");
+      textRef.current.classList.remove("opacity-0");
+      textRef.current.classList.add("animate__rubberBand");
+      textRef.current.onanimationend = () => {
+        textRef.current.classList.remove("animate__rubberBand");
+      };
+    }
   };
 
   return (
