@@ -10,7 +10,9 @@ const Container = ({ left, right }) => {
         <div className="flex justify-center items-center w-full h-full">
           {left}
         </div>
-        <div>{right}</div>
+        <div className="flex justify-center items-center w-full h-full">
+          {right}
+        </div>
       </div>
 
       <Tag bottom="5" left="16" text="/body" />

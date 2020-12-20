@@ -1,5 +1,5 @@
-import AnimationText from "../../components/AnimationText";
-import Tag from "../../components/Tag";
+import AnimationText from "../../../components/AnimationText";
+import Tag from "../../../components/Tag";
 
 const TextCotainer = () => {
   const BIO = "Hello, I'm Gyeonghun, passionate Student, and Developer!!";
