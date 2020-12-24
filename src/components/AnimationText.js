@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const AnimationText = ({ text, milliseconds }) => {
+const AnimationText = ({ text, milliseconds, isTitle }) => {
   const textRef = useRef();
   let isFinshied = false;
   let timeouts;
@@ -33,7 +33,9 @@ const AnimationText = ({ text, milliseconds }) => {
   return (
     <div
       ref={textRef}
-      className={`p-3 text-5xl text-white animate__animated opacity-0 hover:text-prime`}
+      className={`p-3 text-5xl animate__animated opacity-0 ${
+        isTitle ? "text-prime" : "text-white hover:text-prime"
+      }`}
       onMouseEnter={addAnimation}
     >
       {text}

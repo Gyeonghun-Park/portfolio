@@ -1,14 +1,13 @@
-import AnimationText from "../../../components/AnimationText";
-import Tag from "../../../components/Tag";
+import AnimationText from "./AnimationText";
+import Tag from "./Tag";
 
-const TextCotainer = () => {
-  const BIO = "Hello, I'm Gyeonghun, passionate Student, and Developer!!";
+const TextCotainer = ({ sentence, isTitle }) => {
   let milliseconds = 1000;
 
   const textFactory = () => {
     let texts = [];
-    for (let i = 0; i < BIO.length; i++) {
-      texts.push(BIO[i]);
+    for (let i = 0; i < sentence.length; i++) {
+      texts.push(sentence[i]);
     }
     return texts;
   };
@@ -19,10 +18,14 @@ const TextCotainer = () => {
       {textFactory().map((text, i) => {
         milliseconds += 100;
         return (
-          <AnimationText key={i} text={text} milliseconds={milliseconds} />
+          <AnimationText
+            key={i}
+            text={text}
+            milliseconds={milliseconds}
+            isTitle={isTitle}
+          />
         );
       })}
-
       <Tag bottom="0" left="10" text="/h1" />
     </div>
   );

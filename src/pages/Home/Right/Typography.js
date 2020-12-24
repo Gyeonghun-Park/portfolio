@@ -91,7 +91,7 @@ const Typography = () => {
     renderer.render(stage);
   };
 
-  return <div ref={targetRef} id={"js_div"} className="w-full h-full"></div>;
+  return <div ref={targetRef} className="w-full h-full"></div>;
 };
 
 export default Typography;
