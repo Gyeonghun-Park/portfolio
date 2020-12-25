@@ -4,12 +4,9 @@ import Dialog from "./dialog.js";
 
 const SwingBox = () => {
   const targetRef = useRef();
-  const [stageDimension, setStageDimension] = useState({
-    height: 1000,
-    width: 1000,
-  });
   const [canvas] = useState(document.createElement("canvas"));
   let ctx;
+  let animations = [];
 
   const pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
 
@@ -30,7 +27,7 @@ const SwingBox = () => {
     window.addEventListener("resize", resize);
     resize();
 
-    const myReq = window.requestAnimationFrame(animate);
+    animations.push(window.requestAnimationFrame(animate));
 
     document.addEventListener("pointerdown", onDown);
     document.addEventListener("pointermove", onMove);
@@ -41,16 +38,11 @@ const SwingBox = () => {
       document.removeEventListener("pointerdown", onDown);
       document.removeEventListener("pointermove", onMove);
       document.removeEventListener("pointerup", onUp);
-      cancelAnimationFrame(myReq);
+      animations.forEach((animation) => cancelAnimationFrame(animation));
     };
   }, []);
 
   const resize = () => {
-    setStageDimension({
-      height: targetRef.current.clientWidth,
-      width: targetRef.current.clientHeight,
-    });
-
     canvas.width = targetRef.current.clientWidth * pixelRatio;
     canvas.height = targetRef.current.clientHeight * pixelRatio;
     ctx.scale(pixelRatio, pixelRatio);
@@ -71,14 +63,16 @@ const SwingBox = () => {
   };
 
   const animate = () => {
-    window.requestAnimationFrame(animate);
+    animations.push(window.requestAnimationFrame(animate));
 
-    ctx.clearRect(
-      0,
-      0,
-      targetRef.current.clientWidth,
-      targetRef.current.clientHeight
-    );
+    if (targetRef.current) {
+      ctx.clearRect(
+        0,
+        0,
+        targetRef.current.clientWidth,
+        targetRef.current.clientHeight
+      );
+    }
 
     for (let i = 0; i < items.length; i++) {
       items[i].animate(ctx);
@@ -123,13 +117,12 @@ const SwingBox = () => {
 
   const onMove = (e) => {
     const rect = e.target.getBoundingClientRect();
-    if (e.clientX > targetRef.current.clientWidth) {
+    if (e.target.tagName === "CANVAS") {
       mousePos.x = e.clientX - rect.left;
       mousePos.y = e.clientY - rect.top;
-    }
-
-    for (let i = 0; i < items.length; i++) {
-      items[i].move(mousePos.clone());
+      for (let i = 0; i < items.length; i++) {
+        items[i].move(mousePos.clone());
+      }
     }
   };
 
@@ -141,7 +134,7 @@ const SwingBox = () => {
     }
   };
 
-  return <div ref={targetRef} className="w-full h-full"></div>;
+  return <div ref={targetRef} id="qweqq" className="w-full h-full"></div>;
 };
 
 export default SwingBox;

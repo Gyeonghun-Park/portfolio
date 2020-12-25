@@ -58,7 +58,8 @@ export default class Dialog {
     ctx.beginPath();
     ctx.fillStyle = "#f4e55a";
     ctx.fillRect(-this.origin.x, -this.origin.y, WIDTH, HEIGHT);
-    ctx.fillStyle = "#000000";
+    ctx.fillStyle = "#222222";
+    ctx.font = "60px Arial";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(

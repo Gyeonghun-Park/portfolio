@@ -32,7 +32,10 @@ const Typography = () => {
         requestAnimationFrame(animate);
       },
     });
-    return () => window.removeEventListener("resize", resize);
+    return () => {
+      window.removeEventListener("resize", resize);
+      stage.destroy();
+    };
   }, []);
 
   const setWebgl = () => {

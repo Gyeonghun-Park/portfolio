@@ -9,8 +9,10 @@ const AnimationText = ({ text, milliseconds, isTitle }) => {
     return new Promise((resolve) => {
       timeouts = setTimeout(resolve, milliseconds, true);
     }).then((result) => {
-      textRef.current.classList.add("animate__bounceIn");
-      isFinshied = result;
+      if (textRef.current) {
+        textRef.current.classList.add("animate__bounceIn");
+        isFinshied = result;
+      }
     });
   };
 
