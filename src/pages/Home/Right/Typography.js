@@ -5,9 +5,9 @@ import Visual from "./visual";
 
 const Typography = () => {
   const targetRef = useRef();
-  const visual = new Visual();
-  const stage = new PIXI.Container();
-  const renderer = new PIXI.Renderer({
+  let visual = new Visual();
+  let stage = new PIXI.Container();
+  let renderer = new PIXI.Renderer({
     width: document.body.clientWidth,
     height: document.body.clientHeight,
     antialias: true,
@@ -17,6 +17,7 @@ const Typography = () => {
     powerPreference: "high-performance",
     backgroundColor: 0x222222,
   });
+  let blurFilter = new PIXI.filters.BlurFilter();
 
   useEffect(() => {
     setWebgl();
@@ -35,13 +36,18 @@ const Typography = () => {
     return () => {
       window.removeEventListener("resize", resize);
       stage.destroy();
+      stage = null;
+      renderer.destroy();
+      renderer = null;
+      blurFilter.destroy();
+      visual.destroy();
+      visual = null;
     };
   }, []);
 
   const setWebgl = () => {
     targetRef.current.appendChild(renderer.view);
 
-    const blurFilter = new PIXI.filters.BlurFilter();
     blurFilter.blur = 10;
     blurFilter.autoFit = true;
 
@@ -89,9 +95,11 @@ const Typography = () => {
   };
 
   const animate = () => {
-    requestAnimationFrame(animate);
-    visual.animate();
-    renderer.render(stage);
+    if (visual) {
+      requestAnimationFrame(animate);
+      visual.animate();
+      renderer.render(stage);
+    }
   };
 
   return <div ref={targetRef} className="w-full h-full"></div>;

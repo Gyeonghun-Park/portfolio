@@ -77,4 +77,9 @@ export default class Visual {
       this.mouse.y = e.clientY - rect.top;
     }
   }
+
+  destroy() {
+    this.container.destroy();
+    this.container = null;
+  }
 }
