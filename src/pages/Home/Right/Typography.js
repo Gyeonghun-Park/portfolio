@@ -4,6 +4,7 @@ import * as PIXI from "pixi.js";
 import Visual from "./visual";
 
 const Typography = () => {
+  //SPA with PIXI
   const targetRef = useRef();
   let visual = new Visual();
   let stage = new PIXI.Container();

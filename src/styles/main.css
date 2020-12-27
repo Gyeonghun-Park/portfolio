@@ -540,12 +540,14 @@ body {
   --tw-bg-opacity: 1;
   background-color: rgba(34, 34, 34, var(--tw-bg-opacity));
   height: 100%;
+  overflow: hidden;
 }
 
 html {
   height: 100%;
   -webkit-user-select: none;
           user-select: none;
+  overflow: hidden;
 }
 
 .container {

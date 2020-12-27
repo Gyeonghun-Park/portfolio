@@ -6,10 +6,12 @@
   body {
     @apply bg-home;
     @apply h-full;
+    @apply overflow-hidden;
   }
 
   html {
     @apply h-full;
     @apply select-none;
+    @apply overflow-hidden;
   }
 }
