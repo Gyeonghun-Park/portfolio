@@ -1,6 +1,6 @@
 import PageContainer from "../../components/Container";
 import TextCotainer from "../../components/TextCotainer";
-import TagCloud from "./TagCloud";
+import TagCloud from "./Right/TagCloud";
 
 const Skills = () => {
   return (

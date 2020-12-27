@@ -16,6 +16,7 @@ import jest from "./img/jest.svg";
 import mysql from "./img/mysql.svg";
 import nestjs from "./img/nestjs.svg";
 import nodejs from "./img/nodejs.svg";
+import opengl from "./img/opengl.svg";
 import pug from "./img/pug.svg";
 import python from "./img/python.svg";
 import react from "./img/react.svg";
@@ -44,6 +45,7 @@ const images = [
   mysql,
   nestjs,
   nodejs,
+  opengl,
   pug,
   python,
   react,

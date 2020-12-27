@@ -134,7 +134,7 @@ const SwingBox = () => {
     }
   };
 
-  return <div ref={targetRef} id="qweqq" className="w-full h-full"></div>;
+  return <div ref={targetRef} className="w-full h-full"></div>;
 };
 
 export default SwingBox;

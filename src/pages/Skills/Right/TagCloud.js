@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import IconList from "./IconList";
-import images from "../../images";
+import images from "../../../images";
 
 const TagCloud = () => {
   const targetRef = useRef();

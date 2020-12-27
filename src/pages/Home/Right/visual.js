@@ -79,7 +79,9 @@ export default class Visual {
   }
 
   destroy() {
-    this.container.destroy();
-    this.container = null;
+    if (this.container) {
+      this.container.destroy();
+      this.container = null;
+    }
   }
 }
