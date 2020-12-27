@@ -8,6 +8,7 @@ import dotnet from "./img/dotnet.svg";
 import express from "./img/express.svg";
 import git from "./img/git-icon.svg";
 import graphql from "./img/graphql.svg";
+import gulp from "./img/gulp.svg";
 import html from "./img/html-5.svg";
 import java from "./img/java.svg";
 import javascript from "./img/javascript.svg";
@@ -35,6 +36,7 @@ const images = [
   express,
   git,
   graphql,
+  gulp,
   html,
   java,
   javascript,
