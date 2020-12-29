@@ -26,7 +26,7 @@ const Map = () => {
         <span className="text-prime">@</span>
         <span>: gp112795@gmail.com</span>
       </p>
-      <div className="w-full h-screen">
+      <div className="w-full absolute bottom-1" style={{ height: "110vh" }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_KEY }}
           defaultCenter={{
@@ -218,7 +218,7 @@ const Map = () => {
                 elementType: "geometry",
                 stylers: [
                   {
-                    color: "#1D1D1D",
+                    color: "#222222",
                   },
                 ],
               },
