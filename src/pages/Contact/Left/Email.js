@@ -8,10 +8,10 @@ const Email = () => {
 
     emailjs
       .sendForm(
-        "service_pwfex8b",
-        "template_mmrk9m8",
+        process.env.REACT_APP_EMAIL_SERVICE_ID,
+        process.env.REACT_APP_EMAIL_TEMPLATE_ID,
         e.target,
-        "user_QZAXAjioZjhEqQ98lHV1d"
+        process.env.REACT_APP_EMAIL_USER_ID
       )
       .then(
         (result) => {
@@ -44,7 +44,7 @@ const Email = () => {
                 type="text"
                 className="bg-input text-gray-200 rounded-sm font-light h-12 px-5 outline-none w-full"
               />
-              <label class="after:content"></label>
+              <label className="after:content"></label>
             </div>
 
             <div className="relative overflow-hidden">
@@ -55,7 +55,7 @@ const Email = () => {
                 required
                 className="bg-input text-gray-200 rounded-sm font-light h-12 px-5 outline-none w-full"
               />
-              <label class="after:content"></label>
+              <label className="after:content"></label>
             </div>
 
             <div className="relative overflow-hidden col-span-2">
@@ -65,16 +65,17 @@ const Email = () => {
                 type="text"
                 className="bg-input text-gray-200 rounded-sm font-light h-12 px-5 outline-none w-full"
               />
-              <label class="after:content"></label>
+              <label className="after:content"></label>
             </div>
 
             <div className="relative overflow-hidden col-span-2">
               <textarea
                 name="message"
                 placeholder="Message"
+                required
                 className="bg-input text-gray-200 rounded-sm font-light h-44 px-5 outline-none w-full"
               />
-              <label class="after:content"></label>
+              <label className="after:content"></label>
             </div>
 
             <button className="text-prime py-2 w-20 justify-self-end ring-1 ring-prime ring-opacity-75 outline-none col-start-2  hover:bg-prime hover:text-home ">

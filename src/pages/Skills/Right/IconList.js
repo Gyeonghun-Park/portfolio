@@ -4,7 +4,7 @@ const IconList = ({ icons }) => {
   return (
     <ul id="tags">
       {icons.map((icon) => (
-        <li className="absolute">
+        <li className="absolute" key={icon}>
           <IconTag icon={icon} url={"/qwe"} />
         </li>
       ))}
