@@ -1,8 +1,29 @@
+import emailjs from "emailjs-com";
 import TextCotainer from "../../../components/TextCotainer";
 import "./Email.css";
 
 const Email = () => {
-  const onSubmit = () => {};
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_pwfex8b",
+        "template_mmrk9m8",
+        e.target,
+        "user_QZAXAjioZjhEqQ98lHV1d"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+
+    e.target.reset();
+  };
   return (
     <div className="flex flex-col justify-center animate__animated animate__fadeIn">
       <TextCotainer sentence="Contact me" isTitle={true} />
@@ -15,7 +36,7 @@ const Email = () => {
           mollis.
         </div>
         <div className="w-9/12">
-          <form className="grid grid-cols-2 gap-3">
+          <form className="grid grid-cols-2 gap-3" onSubmit={sendEmail}>
             <div className="relative overflow-hidden">
               <input
                 name="name"

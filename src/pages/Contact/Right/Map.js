@@ -38,6 +38,7 @@ const Map = () => {
           onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
           options={{
             disableDefaultUI: true,
+            backgroundColor: "none",
             styles: [
               {
                 featureType: "all",
@@ -224,7 +225,7 @@ const Map = () => {
               },
             ],
           }}
-        ></GoogleMapReact>
+        />
       </div>
     </div>
   );
