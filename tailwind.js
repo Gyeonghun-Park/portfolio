@@ -1,4 +1,5 @@
 const colors = require("tailwindcss/colors");
+const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   purge: [],
@@ -20,6 +21,7 @@ module.exports = {
       nav: "#181818",
       prime: "#08fdd8",
       tag: "#515152",
+      input: "#2b2b2b",
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
@@ -918,5 +920,33 @@ module.exports = {
     wordBreak: ["responsive"],
     zIndex: ["responsive", "focus-within", "focus"],
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addVariant, e }) => {
+      addVariant("before", ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.${e(`before${separator}${className}`)}::before`;
+        });
+      });
+      addVariant("after", ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.${e(`after${separator}${className}`)}::after`;
+        });
+      });
+    }),
+    plugin(({ addUtilities }) => {
+      const contentUtilities = {
+        ".content": {
+          content: "attr(data-content)",
+        },
+        ".content-before": {
+          content: "attr(data-before)",
+        },
+        ".content-after": {
+          content: "attr(data-after)",
+        },
+      };
+
+      addUtilities(contentUtilities, ["before", "after"]);
+    }),
+  ],
 };

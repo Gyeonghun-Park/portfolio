@@ -1,0 +1,21 @@
+::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 99.9%;
+  height: 1px;
+}
+
+label::after {
+  margin-top: 2px;
+  border-bottom: 2px solid #08fdd8;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+input:focus + label::after,
+textarea:focus + label::after {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
