@@ -1,6 +1,6 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
-import markerIcon from "../../../img/marker.svg";
+import markerIcon from "../../../img/Marker.svg";
 
 const Map = () => {
   const LAT = 42.999788256588396;

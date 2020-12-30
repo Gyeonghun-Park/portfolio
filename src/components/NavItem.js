@@ -11,7 +11,7 @@ const NavItem = withRouter(({ location: { pathname }, icon, path, name }) => {
             className={pathname === path ? "text-prime absolut" : ""}
           />
         </div>
-        <div className="text-prime font-light text-base pt-1  text-center">
+        <div className="text-prime font-light text-xs pt-2  text-center">
           {name}
         </div>
       </div>
