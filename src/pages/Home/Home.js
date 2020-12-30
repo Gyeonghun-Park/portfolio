@@ -6,7 +6,9 @@ const Home = () => {
   return (
     <PageContainer
       left={
-        <TextCotainer sentence="Hello, I'm Gyeonghun, passionate Student, and Developer!!" />
+        <TextCotainer
+          sentences={["Hello!", "I'm Gyeonghun", "passionate Student."]}
+        />
       }
       right={<Typography />}
     />

@@ -9,8 +9,8 @@ const Typography = () => {
   let visual = new Visual();
   let stage = new PIXI.Container();
   let renderer = new PIXI.Renderer({
-    width: document.body.clientWidth,
-    height: document.body.clientHeight,
+    width: 0,
+    height: 0,
     antialias: true,
     transparent: false,
     resolution: window.devicePixelRatio > 1 ? 2 : 1,

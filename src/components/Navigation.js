@@ -5,7 +5,6 @@ import {
   faEnvelope,
   faEye,
   faHome,
-  faLemon,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import {
