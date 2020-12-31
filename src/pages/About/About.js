@@ -5,7 +5,7 @@ import SwingBox from "./Right/SwingBox";
 const About = () => {
   return (
     <PageContainer
-      left={<TextCotainer sentences={["About me"]} isTitle={true} />}
+      left={<TextCotainer sentences={["About me"]} isTitle />}
       right={<SwingBox />}
     />
   );

@@ -1,5 +1,7 @@
 import emailjs from "emailjs-com";
 import TextCotainer from "../../../components/TextCotainer";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./Email.css";
 
 const Email = () => {
@@ -15,20 +17,40 @@ const Email = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
+          notifySuccess();
         },
         (error) => {
-          console.log(error.text);
+          notifyFail();
         }
       );
 
     e.target.reset();
   };
+
+  const notifySuccess = () => {
+    toast("Your e-mail has been successfully sent. Thank You!", {
+      className: "shadow-2xl",
+    });
+  };
+
+  const notifyFail = () => {
+    toast.error(
+      "Failed to send your message. Please try later or contact me directly gp112795@gmail.com.",
+      {
+        className: "shadow-2xl",
+      }
+    );
+  };
+
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="flex flex-col items-center">
+      <ToastContainer
+        bodyClassName={() => "text-sm text-white font-medium block p-4"}
+        position="bottom-right"
+      />
+      <div className="flex flex-col items-center ">
         <div className="w-10/12">
-          <TextCotainer sentences={["Contact me"]} isTitle={true} />
+          <TextCotainer sentences={["Contact me"]} isTitle />
         </div>
         <div className="text-white w-9/12 my-8 ml-2">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id
@@ -80,7 +102,7 @@ const Email = () => {
               <label className="after:content"></label>
             </div>
 
-            <button className="text-prime py-2 w-20 justify-self-end ring-1 ring-prime ring-opacity-75 outline-none col-start-2 animate__animated animate__fadeInUp animate__slower hover:bg-prime hover:text-home ">
+            <button className="text-prime py-2 w-20 justify-self-end ring-1 ring-prime ring-opacity-75 outline-none col-start-2 transition-colors animate__animated animate__fadeInUp animate__slower hover:bg-prime hover:text-home ">
               SEND
             </button>
           </form>

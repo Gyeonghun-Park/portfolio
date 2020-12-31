@@ -5,7 +5,7 @@ import TagCloud from "./Right/TagCloud";
 const Skills = () => {
   return (
     <PageContainer
-      left={<TextCotainer sentences={["Hello,", "I'm Gyeonghun"]} />}
+      left={<TextCotainer sentences={["Skills & Abilities"]} isTitle />}
       right={<TagCloud />}
     />
   );
