@@ -18,7 +18,7 @@ const Map = () => {
 
   return (
     <div className="relative w-full h-screen">
-      <p className="bg-nav left-10 top-5 text-white p-5 bg-opacity-90 max-w-xs animate__animated animate__fadeIn absolute z-10 whitespace-pre-line">
+      <p className="bg-nav left-10 top-5 text-white p-5 bg-opacity-90 max-w-xs absolute z-10 whitespace-pre-line">
         {`Gyeonghun Park 
           London, Ontario, Canada
           
