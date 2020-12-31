@@ -35,7 +35,7 @@ const AnimationText = ({ text, milliseconds, isTitle, img }) => {
   return (
     <div
       ref={textRef}
-      className={`text-5xl animate__animated opacity-0 ${
+      className={`text-7xl animate__animated opacity-0 ${
         isTitle ? "text-prime" : "text-white hover:text-prime"
       }`}
       onMouseEnter={addAnimation}
@@ -43,7 +43,7 @@ const AnimationText = ({ text, milliseconds, isTitle, img }) => {
       {text ? (
         text
       ) : (
-        <img src={img} alt="G" className="w-9 h-9 mt-3" id="imageText" />
+        <img src={img} alt="G" className="w-16 h-16 mt-2" id="imageText" />
       )}
     </div>
   );

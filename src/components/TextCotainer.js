@@ -14,12 +14,15 @@ const TextCotainer = ({ sentences, isTitle }) => {
   };
 
   return (
-    <div className="relative p-10">
-      <Tag top="0" left="10" text="h1" />
+    <div className="relative p-12">
+      <Tag top="3" left="5" text="h1" />
       {sentences.map((sentence, i) => {
         const tmp = textFactory(sentence).map((text, j) => {
           milliseconds += 100;
           if (text !== "G") {
+            if (text === " ") {
+              return <span key={`${i}${j}`} className="w-5"></span>;
+            }
             return (
               <AnimationText
                 key={`${i}${j}`}
@@ -45,7 +48,7 @@ const TextCotainer = ({ sentences, isTitle }) => {
           </div>
         );
       })}
-      <Tag bottom="0" left="10" text="/h1" />
+      <Tag bottom="0" left="5" text="/h1" />
     </div>
   );
 };
