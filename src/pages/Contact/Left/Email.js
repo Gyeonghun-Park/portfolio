@@ -16,10 +16,10 @@ const Email = () => {
         process.env.REACT_APP_EMAIL_USER_ID
       )
       .then(
-        (result) => {
+        () => {
           notifySuccess();
         },
-        (error) => {
+        () => {
           notifyFail();
         }
       );
@@ -43,7 +43,7 @@ const Email = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center pb-20">
       <ToastContainer
         bodyClassName={() => "text-sm text-white font-medium block p-4"}
         position="bottom-right"
@@ -52,12 +52,15 @@ const Email = () => {
         <div className="w-10/12">
           <TextCotainer sentences={["Contact me"]} isTitle />
         </div>
-        <div className="text-white w-9/12 my-8 ml-2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id
-          ultricies ligula. Maecenas lacinia tortor sed urna suscipit mollis. Ut
-          pretium lectus ac urna finibus scelerisque ac a turpis. Aliquam quis
-          arcu ut urna vulputate lacinia at at ex. Nullam faucibus non arcu in
-          mollis.
+        <div className="text-gray-100 font-bold text-3xl w-9/12 mt-5 ml-2">
+          Let's make something great!
+        </div>
+        <div className="text-gray-300 w-9/12 my-8 ml-2">
+          I'm seeking out opportunities to work with companies / agencies /
+          individuals. We can work together to solve real business-problems in a
+          way that optimizes all of our respective experience and knowledge! If
+          you have other request or question, don’t hesitate to contact me using
+          below form either.
         </div>
         <div className="w-9/12">
           <form className="grid grid-cols-2 gap-3" onSubmit={sendEmail}>

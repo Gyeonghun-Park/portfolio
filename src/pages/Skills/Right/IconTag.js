@@ -1,6 +1,6 @@
 const IconTag = ({ icon, url }) => {
   return (
-    <a href={url}>
+    <a target="_blank" href={url}>
       <img src={icon} alt={icon} />
     </a>
   );

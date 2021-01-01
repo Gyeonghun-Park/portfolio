@@ -15,14 +15,13 @@ const TagCloud = () => {
     eval(
       `try {
         TagCanvas.Start("myCanvas", "tags", {
-          outlineThickness : 0.5,
+          outlineMethod: "size",
+          outlineIncrease: 15,
           maxSpeed : 0.06,
           freezeActive:true,
           shuffleTags:true,
           shape:'sphere',
           zoom:0.8,
-          noSelect:true,
-          textFont:null,
           pinchZoom:true,
           freezeDecel:true,
           fadeIn:3000,

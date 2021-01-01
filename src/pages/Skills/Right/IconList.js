@@ -4,8 +4,8 @@ const IconList = ({ icons }) => {
   return (
     <ul id="tags">
       {icons.map((icon) => (
-        <li className="absolute" key={icon}>
-          <IconTag icon={icon} url={"/qwe"} />
+        <li className="absolute" key={icon.name}>
+          <IconTag icon={icon.name} url={icon.path} />
         </li>
       ))}
     </ul>
