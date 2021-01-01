@@ -7,6 +7,7 @@ import deno from "./img/deno.svg";
 import django from "./img/django.svg";
 import dotnet from "./img/dotnet.svg";
 import express from "./img/express.svg";
+import firebase from "./img/firebase.svg";
 import git from "./img/git-icon.svg";
 import graphql from "./img/graphql.svg";
 import gulp from "./img/gulp.svg";
@@ -61,6 +62,10 @@ const images = [
   {
     name: express,
     path: "http://expressjs.com/",
+  },
+  {
+    name: firebase,
+    path: "https://firebase.google.com/",
   },
   {
     name: git,

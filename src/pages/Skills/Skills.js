@@ -7,9 +7,23 @@ const Skills = () => {
   return (
     <PageContainer
       left={
-        <div>
-          <TextCotainer sentences={["Skills & Abilities"]} isTitle />
-          <div className="text-gray-300">
+        <div className="flex flex-col justify-center items-center pb-20">
+          <div className="w-10/12">
+            <TextCotainer sentences={["Skills & Abilities"]} isTitle />
+          </div>
+          <div className="text-gray-300 w-9/12 my-10">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+            maximus congue orci mattis sagittis. Donec vitae pellentesque diam,
+            in tristique sem. Vestibulum et urna libero. In nec tincidunt justo.
+            Donec dignissim imperdiet velit vitae malesuada. Aenean id neque nec
+            ipsum dapibus condimentum.
+          </div>
+          <div className="text-gray-300 w-9/12 mb-10">
+            On the right is a sphere made up of my proficient programming
+            languages and technical skills. If you want to know about their
+            details, click the icon.
+          </div>
+          <div className="text-gray-300 w-9/12">
             Visit my&nbsp;
             <a
               target="_blank"
