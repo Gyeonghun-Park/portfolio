@@ -17,7 +17,7 @@ import Logo from "../img/Logo.png";
 
 const Navigation = withRouter(({ location: { pathname } }) => {
   return (
-    <div className="bg-nav box-border flex flex-col justify-between h-fulll w-16 text-gray-500 z-50">
+    <div className="bg-nav box-border flex flex-col justify-between h-fulll w-16 text-gray-500 z-10">
       <div className="grid justify-items-center bg-black">
         <img src={Logo} alt="logo" className="mt-2" />
         <span className="text-xs text-gray-300 font-bold pb-2">Park</span>

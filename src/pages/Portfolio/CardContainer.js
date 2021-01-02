@@ -248,7 +248,7 @@ const CardContainer = () => {
   };
 
   return (
-    <div className="felx justify-center items-center w-full h-full relative animate__animated animate__fadeIn animate__slow">
+    <>
       <div
         ref={cardContainer}
         className="absolute top-1/2 left-1/2 transition transform -translate-y-1/2 -translate-x-1/2 w-1/6"
@@ -263,7 +263,7 @@ const CardContainer = () => {
         <Card num={7} />
         <Card num={8} />
       </div>
-    </div>
+    </>
   );
 };
 
