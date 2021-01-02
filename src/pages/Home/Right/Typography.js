@@ -25,12 +25,12 @@ const Typography = () => {
     if (targetRef.current) {
       const container = document.createElement("div");
       container.className =
-        "absolute top-1/2 left-1/4 transition duration-1000 transform flex items-center w-8 opacity-0 animate__animated";
+        "absolute flex items-center w-8 transition duration-1000 transform opacity-0 top-1/2 left-1/4 animate__animated";
       const cursorIcon = document.createElement("img");
       cursorIcon.src = cursor;
       const cursorText = document.createElement("div");
       cursorText.className =
-        "bg-black text-sm text-white ml-1 px-3 py-2 rounded-full";
+        "px-3 py-2 ml-1 text-sm text-white bg-black rounded-full";
       cursorText.innerText = "Move";
 
       container.appendChild(cursorIcon);
@@ -143,7 +143,7 @@ const Typography = () => {
   return (
     <div
       ref={targetRef}
-      className="w-full h-full flex justify-center relative cursor-pointer"
+      className="relative flex justify-center w-full h-full cursor-pointer"
     ></div>
   );
 };

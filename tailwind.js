@@ -17,12 +17,22 @@ module.exports = {
       transparent: "transparent",
       current: "currentColor",
 
+      black: {
+        100: "#d3d3d3",
+        200: "#a7a7a7",
+        300: "#7a7a7a",
+        400: "#4e4e4e",
+        500: "#222222",
+        600: "#1b1b1b",
+        700: "#141414",
+        800: "#0e0e0e",
+        900: "#070707",
+      },
       home: "#222222",
       nav: "#181818",
       prime: "#08fdd8",
       tag: "#515152",
       input: "#2b2b2b",
-      black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
       red: colors.red,
@@ -921,6 +931,7 @@ module.exports = {
     zIndex: ["responsive", "focus-within", "focus"],
   },
   plugins: [
+    require("tailwind-scrollbar"),
     plugin(({ addVariant, e }) => {
       addVariant("before", ({ modifySelectors, separator }) => {
         modifySelectors(({ className }) => {

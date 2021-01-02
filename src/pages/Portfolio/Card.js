@@ -18,14 +18,15 @@ const customStyles = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "rgba(34, 34, 34, 0.75)",
+    backgroundColor: "rgba(34, 34, 34, 0.25)",
+    zIndex: 30,
   },
   content: {
     position: "absolute",
-    top: "20vh",
+    top: "15vh",
     left: "20vw",
     right: "20vw",
-    bottom: "20vh",
+    bottom: "15vh",
     border: "1px solid #3b3b3b",
     background: "#222222",
     WebkitOverflowScrolling: "touch",
@@ -37,28 +38,29 @@ const customStyles = {
 };
 
 Modal.setAppElement("#root");
-const Card = ({ num }) => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
+const Card = ({ bg, content, modalIsOpen, setModalIsOpen }) => {
   return (
     <div
-      className="absolute top-0 left-0 bg-purple-400 ring-gray-700 ring-1"
-      style={{ width: 310, height: 220 }}
+      className="absolute top-0 left-0 shadow-2xl ring-gray-700"
+      style={{
+        width: 220,
+        height: 310,
+        backgroundColor: bg,
+        backgroundImage: `url(${content})`,
+      }}
     >
-      {num}
-      <button onClick={() => setModalIsOpen(true)}>Open Modal</button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
         style={customStyles}
       >
-        <div class="w-full h-full">
+        <div className="w-full h-full animate__animated animate__fadeIn">
           <button
             onClick={() => setModalIsOpen(false)}
-            class="absolute top-0 right-0 flex flex-col items-center mt-4 mr-4 text-white text-sm z-50"
+            className="absolute top-0 right-0 z-50 flex flex-col items-center mt-4 mr-4 text-sm text-white"
           >
             <svg
-              class="fill-current text-white"
+              className="text-white fill-current"
               xmlns="http://www.w3.org/2000/svg"
               width="18"
               height="18"
@@ -68,18 +70,18 @@ const Card = ({ num }) => {
             </svg>
           </button>
 
-          <div className="grid grid-cols-2 w-full h-full">
+          <div className="grid w-full h-full grid-cols-2">
             <div className="flex items-center">
               <img src={sample} alt="sample" />
             </div>
             <div className="bg-input">
               <div className="flex flex-col p-5">
-                <span className="text-gray-300 font-bold">PROJECT</span>
-                <span className="text-gray-50 font-extrabold text-3xl mt-3">
+                <span className="mt-5 font-bold text-gray-300">PROJECT</span>
+                <span className="mt-3 text-3xl font-extrabold text-gray-50">
                   Awesome Project Title
                 </span>
-                <span className="text-gray-300 mt-5">What did I use?</span>
-                <div className="grid grid-flow-col auto-cols-fr justify-items-centert items-center gap-4 px-5 mt-5">
+                <span className="mt-5 text-gray-300">What did I use?</span>
+                <div className="grid items-center grid-flow-col gap-4 px-5 mt-5 auto-cols-fr justify-items-centert">
                   <img src={express} alt="icon" />
                   <img src={html} alt="icon" />
                   <img src={javascript} alt="icon" />
@@ -88,39 +90,38 @@ const Card = ({ num }) => {
                   <img src={tailwindcss} alt="icon" />
                   <img src={webpack} alt="icon" />
                 </div>
-                <span className="text-gray-200 font-bold text-2xl mt-3">
+                <span className="mt-3 text-2xl font-bold text-gray-200">
                   About
                 </span>
-                <span className="overflow-y-scroll max-h-48 mt-5">
+                <span className="p-3 mt-2 overflow-auto h-72 max-h-72 scrollbar-thin scrollbar-track-black-300 scrollbar-thumb-tag">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                   tincidunt felis eget nunc maximus semper. Nam accumsan luctus
                   turpis quis congue. Aliquam faucibus mauris at nulla accumsan
-                  tempus. Aenean vulputate rhoncus nunc vel facilisis. Maecenas
-                  placerat dolor ante, ac convallis ligula luctus sed. Cras
-                  rhoncus dui odio. Aliquam eu fringilla risus. Sed nec nulla
-                  augue. Vestibulum condimentum nibh quis metus hendrerit
-                  molestie. Nunc sit amet urna nunc. Vestibulum justo enim,
-                  luctus eu lacus eu, pretium porttitor urna. Nullam cursus urna
-                  eu varius dictum. Nunc non elit diam. Aliquam erat volutpat.
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam erat volutpat. Suspendisse pellentesque convallis elit
-                  sit amet lobortis. Etiam eu lectus porta, iaculis ante non,
-                  posuere erat. Pellentesque a rhoncus felis. Etiam mollis
-                  maximus sapien nec pulvinar. Proin eros mi, sagittis ac
-                  accumsan vitae, semper nec mi. Phasellus cursus tortor purus,
-                  vitae convallis ipsum commodo id. Integer gravida placerat
-                  elit, eu viverra ex placerat ultricies. Donec a odio vitae
-                  augue pharetra rhoncus. Pellentesque pellentesque facilisis
-                  lacus, nec tincidunt velit fringilla nec. Aliquam placerat
-                  felis diam, at pharetra quam auctor vitae.
+                  Lore Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Sed tincidunt felis eget nunc maximus semper. Nam accumsan
+                  luctus turpis quis congue. Aliquam faucibus mauris at nulla
+                  accumsan Lore Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit. Sed tincidunt felis eget nunc maximus semper.
+                  Nam accumsan luctus turpis quis congue. Aliquam faucibus
+                  mauris at nulla accumsan Lore Lorem ipsum dolor sit amet,
+                  consectetur adipiscing elit. Sed tincidunt felis eget nunc
+                  maximus semper. Nam accumsan luctus turpis quis congue.
+                  Aliquam faucibus mauris at nulla accumsan Lore Lorem ipsum
+                  dolor sit amet, consectetur adipiscing elit. Sed tincidunt
+                  felis eget nunc maximus semper. Nam accumsan luctus turpis
+                  quis congue. Aliquam faucibus mauris at nulla accumsan Lore
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  tincidunt felis eget nunc maximus semper. Nam accumsan luctus
+                  turpis quis congue. Aliquam faucibus mauris at nulla accumsan
+                  Lore
                 </span>
-                <div className="grid grid-cols-2 justify-items-center items-center mt-5">
-                  <button className="bg-gray-700 p-3 w-36">
-                    <FontAwesomeIcon icon={faCode} />
+                <div className="grid items-center grid-cols-2 mt-5 justify-items-center">
+                  <button className="p-3 bg-gray-700 w-36">
+                    <FontAwesomeIcon icon={faEye} />
                     DEMO
                   </button>
-                  <button className="bg-gray-700 p-3 w-36">
-                    <FontAwesomeIcon icon={faEye} />
+                  <button className="p-3 bg-gray-700 w-36">
+                    <FontAwesomeIcon icon={faCode} />
                     CODE
                   </button>
                 </div>

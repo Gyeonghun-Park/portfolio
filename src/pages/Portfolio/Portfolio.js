@@ -4,7 +4,7 @@ import CardContainer from "./CardContainer";
 
 const Portfolio = () => {
   return (
-    <div className="flex justify-center my-10 w-full relative animate__animated animate__fadeIn animate__slow">
+    <div className="relative flex justify-center w-full my-10 animate__animated animate__fadeIn animate__slow">
       <Tag top="0" left="10" text="html" />
       <Tag top="5" left="16" text="body" />
 

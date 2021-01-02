@@ -43,7 +43,7 @@ const Email = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center pb-20">
+    <div className="flex flex-col items-center justify-center pb-20">
       <ToastContainer
         bodyClassName={() => "text-sm text-white font-medium block p-4"}
         position="bottom-right"
@@ -52,10 +52,10 @@ const Email = () => {
         <div className="w-10/12">
           <TextCotainer sentences={["Contact me"]} isTitle />
         </div>
-        <div className="text-gray-100 font-bold text-3xl w-9/12 mt-5 ml-2">
+        <div className="w-9/12 mt-5 ml-2 text-3xl font-bold text-gray-100">
           Let's make something great!
         </div>
-        <div className="text-gray-300 w-9/12 my-8 ml-2">
+        <div className="w-9/12 my-8 ml-2 text-gray-300">
           I'm seeking out opportunities to work with companies / agencies /
           individuals. We can work together to solve real business-problems in a
           way that optimizes all of our respective experience and knowledge! If
@@ -69,7 +69,7 @@ const Email = () => {
                 name="name"
                 placeholder="Name"
                 type="text"
-                className="bg-input text-gray-200 rounded-sm font-light h-12 px-5 outline-none w-full"
+                className="w-full h-12 px-5 font-light text-gray-200 rounded-sm outline-none bg-input"
               />
               <label className="after:content"></label>
             </div>
@@ -80,32 +80,32 @@ const Email = () => {
                 placeholder="Email"
                 type="email"
                 required
-                className="bg-input text-gray-200 rounded-sm font-light h-12 px-5 outline-none w-full"
+                className="w-full h-12 px-5 font-light text-gray-200 rounded-sm outline-none bg-input"
               />
               <label className="after:content"></label>
             </div>
 
-            <div className="relative overflow-hidden col-span-2 animate__animated animate__fadeInUp">
+            <div className="relative col-span-2 overflow-hidden animate__animated animate__fadeInUp">
               <input
                 name="subject"
                 placeholder="Subject"
                 type="text"
-                className="bg-input text-gray-200 rounded-sm font-light h-12 px-5 outline-none w-full"
+                className="w-full h-12 px-5 font-light text-gray-200 rounded-sm outline-none bg-input"
               />
               <label className="after:content"></label>
             </div>
 
-            <div className="relative overflow-hidden col-span-2 animate__animated animate__fadeInUp animate__slow">
+            <div className="relative col-span-2 overflow-hidden animate__animated animate__fadeInUp animate__slow">
               <textarea
                 name="message"
                 placeholder="Message"
                 required
-                className="bg-input text-gray-200 rounded-sm font-light h-44 p-5 outline-none w-full"
+                className="w-full p-5 font-light text-gray-200 rounded-sm outline-none bg-input h-44"
               />
               <label className="after:content"></label>
             </div>
 
-            <button className="text-prime py-2 w-20 justify-self-end ring-1 ring-prime ring-opacity-75 outline-none col-start-2 transition-colors animate__animated animate__fadeInUp animate__slower hover:bg-prime hover:text-home ">
+            <button className="w-20 col-start-2 py-2 transition-colors outline-none text-prime justify-self-end ring-1 ring-prime ring-opacity-75 animate__animated animate__fadeInUp animate__slower hover:bg-prime hover:text-home ">
               SEND
             </button>
           </form>

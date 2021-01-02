@@ -1,14 +1,18 @@
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import Card from "./Card";
+import sample from "./sample.png";
 
 const CardContainer = () => {
   const cardContainer = useRef();
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   let cardWidth = 0.0;
   let totalCardIndex = 0;
   let middleCard = 0;
   let cardOffset = 0.0;
   let inProgress = false;
-  const cardScale = 0.95;
+  const ANIMATION_DURATION = 200;
+  const CARD_SCALE = 0.95;
+  const TRANSLATE_Y = -50;
 
   let isDown = false;
   let moveX = 0;
@@ -21,7 +25,7 @@ const CardContainer = () => {
     );
     totalCardIndex = cardContainer.current.children.length - 1;
     middleCard = Math.floor(totalCardIndex / 2);
-    cardOffset = cardWidth * (1 / 3);
+    cardOffset = cardWidth * (1 / 5);
 
     animations.push(window.requestAnimationFrame(animate));
     document.addEventListener("pointerdown", onDown);
@@ -32,7 +36,7 @@ const CardContainer = () => {
     orderCards();
     offsetCards();
     cascadeCards();
-    scaleCards();
+    transformCards();
 
     return () => {
       animations.forEach((animation) => cancelAnimationFrame(animation));
@@ -46,15 +50,23 @@ const CardContainer = () => {
     for (let i = 0; i <= totalCardIndex; i++) {
       cardContainer.current.children[i].addEventListener("click", (e) => {
         const currentIndex = Array.from(e.path[1].children).indexOf(e.path[0]);
+        let totalTime = 0;
         if (currentIndex < middleCard) {
           for (let j = 0; j < middleCard - currentIndex; j++) {
-            setTimeout(() => previousCard(), j * 220);
+            totalTime += ANIMATION_DURATION + 20;
+            setTimeout(() => previousCard(), totalTime);
           }
         } else if (currentIndex > middleCard) {
           for (let j = 0; j < currentIndex - middleCard; j++) {
-            setTimeout(() => nextCard(), j * 220);
+            totalTime += ANIMATION_DURATION + 20;
+            setTimeout(() => nextCard(), totalTime);
           }
+        } else {
+          setModalIsOpen(true);
+          return;
         }
+        totalTime += ANIMATION_DURATION * 3;
+        setTimeout(() => setModalIsOpen(true), totalTime);
       });
     }
   };
@@ -109,23 +121,25 @@ const CardContainer = () => {
     }
   };
 
-  const scaleCards = () => {
+  const transformCards = () => {
     let counterLeft = middleCard;
     let counterRight = 1;
 
     for (let i = 0; i <= totalCardIndex; i++) {
-      if (i <= middleCard) {
+      if (i < middleCard) {
         cardContainer.current.children[i].style.transform = `scale(${Math.pow(
-          cardScale,
-          counterLeft--
-        )})`;
+          CARD_SCALE,
+          counterLeft
+        )}) translateY(${TRANSLATE_Y + counterLeft-- * 12}px)`;
       } else if (i > middleCard) {
         cardContainer.current.children[i].style.transform = `scale(${Math.pow(
-          cardScale,
-          counterRight++
-        )})`;
+          CARD_SCALE,
+          counterRight
+        )}) translateY(${TRANSLATE_Y + counterRight++ * 12}px)`;
       } else {
-        cardContainer.current.children[i].style.transform = "scale(1)";
+        cardContainer.current.children[
+          middleCard
+        ].style.transform = `scale(1) translateY(${TRANSLATE_Y}px)`;
       }
     }
   };
@@ -168,7 +182,7 @@ const CardContainer = () => {
 
           inProgress = false;
         }, 10);
-      }, 200);
+      }, ANIMATION_DURATION);
     }
   };
 
@@ -213,7 +227,7 @@ const CardContainer = () => {
 
           inProgress = false;
         }, 10);
-      }, 200);
+      }, ANIMATION_DURATION);
     }
   };
 
@@ -251,17 +265,50 @@ const CardContainer = () => {
     <>
       <div
         ref={cardContainer}
-        className="absolute top-1/2 left-1/2 transition transform -translate-y-1/2 -translate-x-1/2 w-1/6"
+        className="absolute w-1/6 transition transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
       >
-        <Card num={0} />
-        <Card num={1} />
-        <Card num={2} />
-        <Card num={3} />
-        <Card num={4} />
-        <Card num={5} />
-        <Card num={6} />
-        <Card num={7} />
-        <Card num={8} />
+        <Card
+          bg={"#5a0000"}
+          content={sample}
+          modalIsOpen={modalIsOpen}
+          setModalIsOpen={setModalIsOpen}
+        />
+        <Card
+          bg={"#681500"}
+          content={sample}
+          modalIsOpen={modalIsOpen}
+          setModalIsOpen={setModalIsOpen}
+        />
+        <Card
+          bg={"#644c09"}
+          content={sample}
+          modalIsOpen={modalIsOpen}
+          setModalIsOpen={setModalIsOpen}
+        />
+        <Card
+          bg={"#1c2b11"}
+          content={sample}
+          modalIsOpen={modalIsOpen}
+          setModalIsOpen={setModalIsOpen}
+        />
+        <Card
+          bg={"#001738"}
+          content={sample}
+          modalIsOpen={modalIsOpen}
+          setModalIsOpen={setModalIsOpen}
+        />
+        <Card
+          bg={"#1b0f38"}
+          content={sample}
+          modalIsOpen={modalIsOpen}
+          setModalIsOpen={setModalIsOpen}
+        />
+        <Card
+          bg={"#240737"}
+          content={sample}
+          modalIsOpen={modalIsOpen}
+          setModalIsOpen={setModalIsOpen}
+        />
       </div>
     </>
   );
