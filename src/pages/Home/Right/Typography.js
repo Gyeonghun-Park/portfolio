@@ -25,7 +25,7 @@ const Typography = () => {
     if (targetRef.current) {
       const container = document.createElement("div");
       container.className =
-        "absolute top-1/2 left-1/4 transition duration-1000 transform transition-all flex items-center w-8 opacity-0 animate__animated";
+        "absolute top-1/2 left-1/4 transition duration-1000 transform flex items-center w-8 opacity-0 animate__animated";
       const cursorIcon = document.createElement("img");
       cursorIcon.src = cursor;
       const cursorText = document.createElement("div");
