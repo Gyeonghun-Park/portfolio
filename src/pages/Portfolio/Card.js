@@ -2,20 +2,7 @@ import Modal from "react-modal";
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import express from "../../img/express.svg";
-import html from "../../img/html-5.svg";
-import javascript from "../../img/javascript.svg";
-import mongodb from "../../img/mongodb.svg";
-import nodejs from "../../img/nodejs.svg";
-import tailwindcss from "../../img/tailwindcss-icon.svg";
-import webpack from "../../img/webpack.svg";
 import { faCode, faEye } from "@fortawesome/free-solid-svg-icons";
-
-const fadeImages = [
-  "https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-  "https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80",
-  "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-];
 
 const customStyles = {
   overlay: {
@@ -44,7 +31,18 @@ const customStyles = {
 };
 
 Modal.setAppElement("#root");
-const Card = ({ bg, content, modalIsOpen, setModalIsOpen }) => {
+const Card = ({
+  bg,
+  cover,
+  previews,
+  title,
+  icons,
+  about,
+  demo,
+  code,
+  modalIsOpen,
+  setModalIsOpen,
+}) => {
   return (
     <div
       className="absolute top-0 left-0 shadow-2xl ring-gray-700"
@@ -52,7 +50,7 @@ const Card = ({ bg, content, modalIsOpen, setModalIsOpen }) => {
         width: 220,
         height: 310,
         backgroundColor: bg,
-        backgroundImage: `url(${content})`,
+        backgroundImage: `url(${cover})`,
       }}
     >
       <Modal
@@ -77,76 +75,58 @@ const Card = ({ bg, content, modalIsOpen, setModalIsOpen }) => {
           </button>
 
           <div className="grid w-full h-full grid-cols-2">
-            <Fade transitionDuration={500} className="mt-auto mb-auto">
-              <div className="each-fade">
-                <div className="image-container">
-                  <img src={fadeImages[0]} />
+            <Fade transitionDuration={300} autoPlay={false} className="my-auto">
+              {previews.map((preview, i) => (
+                <div
+                  key={preview.desc}
+                  className="flex flex-col items-center each-slide"
+                >
+                  <img src={preview.preview} alt={preview.desc} />
+                  <span className="mt-5 text-2xl text-gray-300">{`${preview.desc}`}</span>
+                  <span className="mt-5 text-2xl text-gray-300">{`${i + 1} / ${
+                    previews.length
+                  }`}</span>
                 </div>
-                <h2>First Slide 1/3</h2>
-              </div>
-              <div className="each-fade">
-                <div className="image-container">
-                  <img src={fadeImages[1]} />
-                </div>
-                <h2>Second Slide 2/3</h2>
-              </div>
-              <div className="each-fade">
-                <div className="image-container">
-                  <img src={fadeImages[2]} />
-                </div>
-                <h2>Third Slide 3/3</h2>
-              </div>
+              ))}
             </Fade>
             <div className="bg-input">
               <div className="flex flex-col p-5">
-                <span className="mt-5 font-bold text-gray-300">PROJECT</span>
-                <span className="mt-3 text-3xl font-extrabold text-gray-50">
-                  Awesome Project Title
+                <span className="mt-5 font-bold text-gray-50">PROJECT</span>
+                <span className="mt-3 text-3xl font-extrabold text-gray-300">
+                  {title}
                 </span>
-                <span className="mt-5 text-gray-300">What did I use?</span>
+                <span className="mt-5 text-gray-50">What did I use?</span>
                 <div className="grid items-center grid-flow-col gap-4 px-5 mt-5 auto-cols-fr justify-items-centert">
-                  <img src={express} alt="icon" />
-                  <img src={html} alt="icon" />
-                  <img src={javascript} alt="icon" />
-                  <img src={mongodb} alt="icon" />
-                  <img src={nodejs} alt="icon" />
-                  <img src={tailwindcss} alt="icon" />
-                  <img src={webpack} alt="icon" />
+                  {icons.map((icon) => (
+                    <a
+                      key={icon.name}
+                      target="_blank"
+                      rel="noreferrer"
+                      href={icon.path}
+                    >
+                      <img src={icon.icon} alt={icon.name} />
+                    </a>
+                  ))}
                 </div>
-                <span className="mt-3 text-2xl font-bold text-gray-200">
+                <span className="mt-3 text-2xl font-bold text-gray-50">
                   About
                 </span>
-                <span className="p-3 mt-2 overflow-auto h-72 max-h-72 scrollbar-thin scrollbar-track-black-300 scrollbar-thumb-tag">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  tincidunt felis eget nunc maximus semper. Nam accumsan luctus
-                  turpis quis congue. Aliquam faucibus mauris at nulla accumsan
-                  Lore Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Sed tincidunt felis eget nunc maximus semper. Nam accumsan
-                  luctus turpis quis congue. Aliquam faucibus mauris at nulla
-                  accumsan Lore Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit. Sed tincidunt felis eget nunc maximus semper.
-                  Nam accumsan luctus turpis quis congue. Aliquam faucibus
-                  mauris at nulla accumsan Lore Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit. Sed tincidunt felis eget nunc
-                  maximus semper. Nam accumsan luctus turpis quis congue.
-                  Aliquam faucibus mauris at nulla accumsan Lore Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit. Sed tincidunt
-                  felis eget nunc maximus semper. Nam accumsan luctus turpis
-                  quis congue. Aliquam faucibus mauris at nulla accumsan Lore
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  tincidunt felis eget nunc maximus semper. Nam accumsan luctus
-                  turpis quis congue. Aliquam faucibus mauris at nulla accumsan
-                  Lore
+                <span className="p-3 mt-2 overflow-auto text-gray-300 h-72 max-h-72 scrollbar-thin scrollbar-track-black-300 scrollbar-thumb-tag">
+                  {about}
                 </span>
                 <div className="grid items-center grid-cols-2 mt-5 justify-items-center">
-                  <button className="p-3 bg-gray-700 w-36">
-                    <FontAwesomeIcon icon={faEye} />
-                    DEMO
-                  </button>
-                  <button className="p-3 bg-gray-700 w-36">
-                    <FontAwesomeIcon icon={faCode} />
-                    CODE
-                  </button>
+                  <a target="_blank" rel="noreferrer" href={demo}>
+                    <button className="p-3 bg-gray-700 w-36">
+                      <FontAwesomeIcon icon={faEye} />
+                      &nbsp;DEMO
+                    </button>
+                  </a>
+                  <a target="_blank" rel="noreferrer" href={code}>
+                    <button className="p-3 bg-gray-700 w-36">
+                      <FontAwesomeIcon icon={faCode} />
+                      &nbsp;CODE
+                    </button>
+                  </a>
                 </div>
               </div>
             </div>

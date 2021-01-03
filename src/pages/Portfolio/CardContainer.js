@@ -1,6 +1,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import Card from "./Card";
 import sample from "./sample.png";
+import projectList from "./projectList";
 
 const CardContainer = ({ parentRef }) => {
   const cardContainer = useRef();
@@ -280,48 +281,63 @@ const CardContainer = ({ parentRef }) => {
         ref={cardContainer}
         className="absolute w-1/6 transition transform -translate-x-1/2 -translate-y-1/2 cursor-pointer top-1/2 left-1/2"
       >
-        <Card
+        {/* <Card
           bg={"#5a0000"}
-          content={sample}
+          cover={sample}
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
         />
         <Card
           bg={"#681500"}
-          content={sample}
+          cover={sample}
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
         />
         <Card
           bg={"#644c09"}
-          content={sample}
+          cover={sample}
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
         />
         <Card
           bg={"#1c2b11"}
-          content={sample}
+          cover={sample}
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
         />
         <Card
           bg={"#001738"}
-          content={sample}
+          cover={sample}
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
         />
         <Card
           bg={"#1b0f38"}
-          content={sample}
+          cover={sample}
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
         />
         <Card
           bg={"#240737"}
-          content={sample}
+          cover={sample}
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
-        />
+        /> */}
+        {projectList.map((project) => (
+          <Card
+            key={project.title}
+            bg={project.bg}
+            cover={project.cover}
+            previews={project.previews}
+            title={project.title}
+            icons={project.icons}
+            about={project.about}
+            demo={project.demo}
+            code={project.code}
+            modalIsOpen={modalIsOpen}
+            setModalIsOpen={setModalIsOpen}
+          />
+        ))}
       </div>
     </>
   );
