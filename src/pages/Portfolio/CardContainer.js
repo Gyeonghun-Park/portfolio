@@ -37,6 +37,7 @@ const CardContainer = () => {
     offsetCards();
     cascadeCards();
     transformCards();
+    nextCard();
 
     return () => {
       animations.forEach((animation) => cancelAnimationFrame(animation));

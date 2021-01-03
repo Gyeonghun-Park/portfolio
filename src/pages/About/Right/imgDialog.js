@@ -1,4 +1,5 @@
 import Point from "./point.js";
+import person from "../../../img/person.jpg";
 
 const FOLLOW_SPEED = 0.08;
 const ROTATE_SPEED = 0.12;
@@ -7,8 +8,8 @@ const FPS = 1000 / 60;
 const WIDTH = 260;
 const HEIGHT = 260;
 
-export default class Dialog {
-  constructor(text) {
+export default class ImgDialog {
+  constructor() {
     this.pos = new Point();
     this.target = new Point();
     this.prevPos = new Point();
@@ -20,14 +21,13 @@ export default class Dialog {
     this.rotation = 0;
     this.sideValue = 0;
     this.isDown = false;
-    this.text = text;
+    this.img = new Image(60, 45);
+    this.img.src = person;
   }
 
   resize(stageWidth, stageHeight) {
-    const random = Math.random();
-    this.pos.x = Math.random() * (stageWidth - WIDTH);
-    this.pos.y =
-      (random > 0.5 ? random : random + 0.5) * (stageHeight - HEIGHT);
+    this.pos.x = 0;
+    this.pos.y = 0;
     this.target = this.pos.clone();
     this.prevPos = this.pos.clone();
   }
@@ -58,18 +58,7 @@ export default class Dialog {
     ctx.save();
     ctx.translate(tmpPos.x, tmpPos.y);
     ctx.rotate((this.rotation * Math.PI) / 180);
-    ctx.beginPath();
-    ctx.fillStyle = "#f4e55a";
-    ctx.fillRect(-this.origin.x, -this.origin.y, WIDTH, HEIGHT);
-    ctx.fillStyle = "#222222";
-    ctx.font = "40px Arial";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText(
-      this.text,
-      -this.origin.x + WIDTH / 2,
-      -this.origin.y + HEIGHT / 2
-    );
+    ctx.drawImage(this.img, -this.origin.x, -this.origin.y, WIDTH, HEIGHT);
     ctx.restore();
   }
 

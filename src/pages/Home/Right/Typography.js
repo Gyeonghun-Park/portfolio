@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import WebFont from "webfontloader";
 import * as PIXI from "pixi.js";
 import Visual from "./visual";
-import cursor from "../../../img/cursor.png";
+import pointer from "../../../img/pointer.png";
 
 const Typography = () => {
   //SPA with PIXI
@@ -27,10 +27,10 @@ const Typography = () => {
       container.className =
         "absolute flex items-center w-8 transition duration-1000 transform opacity-0 top-1/2 left-1/4 animate__animated";
       const cursorIcon = document.createElement("img");
-      cursorIcon.src = cursor;
+      cursorIcon.src = pointer;
       const cursorText = document.createElement("div");
       cursorText.className =
-        "px-3 py-2 ml-1 text-sm text-white bg-black rounded-full";
+        "px-3 py-2 ml-1 text-sm text-white rounded-full bg-black-500";
       cursorText.innerText = "Move";
 
       container.appendChild(cursorIcon);

@@ -932,6 +932,7 @@ module.exports = {
   },
   plugins: [
     require("tailwind-scrollbar"),
+    require("tailwindcss-cursor-extended")(["responsive"]),
     plugin(({ addVariant, e }) => {
       addVariant("before", ({ modifySelectors, separator }) => {
         modifySelectors(({ className }) => {

@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Point from "./point.js";
 import Dialog from "./dialog.js";
+import ImgDialog from "./imgDialog.js";
+import drag from "../../../img/drag.png";
 
 const SwingBox = () => {
   const targetRef = useRef();
@@ -14,14 +16,15 @@ const SwingBox = () => {
   let curItem = null;
 
   const items = [];
-  const total = 2;
+  //const total = 3;
 
   useEffect(() => {
-    for (let i = 0; i < total; i++) {
-      items[i] = new Dialog();
-    }
+    items[0] = new ImgDialog();
+    items[1] = new Dialog("Gyeonghun");
+    items[2] = new Dialog("Park");
 
     targetRef.current.appendChild(canvas);
+    canvas.classList.add("cursor-grab");
     ctx = canvas.getContext("2d");
 
     window.addEventListener("resize", resize);
@@ -32,6 +35,7 @@ const SwingBox = () => {
     document.addEventListener("pointerdown", onDown);
     document.addEventListener("pointermove", onMove);
     document.addEventListener("pointerup", onUp);
+    createCursor();
 
     return () => {
       window.removeEventListener("resize", resize);
@@ -41,6 +45,39 @@ const SwingBox = () => {
       animations.forEach((animation) => cancelAnimationFrame(animation));
     };
   }, []);
+
+  const createCursor = () => {
+    if (targetRef.current) {
+      const container = document.createElement("div");
+      container.className =
+        "absolute flex items-center w-8 transition duration-1000 transform opacity-0 top-20 left-20 animate__animated";
+      const cursorIcon = document.createElement("img");
+      cursorIcon.src = drag;
+      const cursorText = document.createElement("div");
+      cursorText.className =
+        "px-3 py-2 ml-1 text-sm text-white rounded-full bg-black-500";
+      cursorText.innerText = "Move";
+
+      container.appendChild(cursorIcon);
+      container.appendChild(cursorText);
+      targetRef.current.appendChild(container);
+
+      setTimeout(() => {
+        container.classList.remove("opacity-0");
+        container.classList.add("animate__tada");
+      }, 2000);
+      setTimeout(() => {
+        container.classList.remove("animate__animated");
+      }, 1900);
+      setTimeout(() => {
+        container.classList.add("translate-x-96");
+        container.classList.add("translate-y-96");
+      }, 3000);
+      setTimeout(() => {
+        container.classList.add("opacity-0");
+      }, 4000);
+    }
+  };
 
   const resize = () => {
     canvas.width = targetRef.current.clientWidth * pixelRatio;
@@ -98,6 +135,9 @@ const SwingBox = () => {
   };
 
   const onDown = (e) => {
+    canvas.classList.remove("cursor-grab");
+    canvas.classList.add("cursor-grabbing");
+
     const rect = e.target.getBoundingClientRect();
     if (e.clientX > targetRef.current.clientWidth) {
       mousePos.x = e.clientX - rect.left;
@@ -127,6 +167,8 @@ const SwingBox = () => {
   };
 
   const onUp = (e) => {
+    canvas.classList.remove("cursor-grabbing");
+    canvas.classList.add("cursor-grab");
     curItem = null;
 
     for (let i = 0; i < items.length; i++) {
@@ -134,7 +176,7 @@ const SwingBox = () => {
     }
   };
 
-  return <div ref={targetRef} className="w-full h-full"></div>;
+  return <div ref={targetRef} className="relative w-full h-full"></div>;
 };
 
 export default SwingBox;
