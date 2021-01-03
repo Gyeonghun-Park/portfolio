@@ -56,7 +56,7 @@ const SwingBox = () => {
       const cursorText = document.createElement("div");
       cursorText.className =
         "px-3 py-2 ml-1 text-sm text-white rounded-full bg-black-500";
-      cursorText.innerText = "Move";
+      cursorText.innerText = "Drag";
 
       container.appendChild(cursorIcon);
       container.appendChild(cursorText);

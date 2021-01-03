@@ -1,6 +1,7 @@
 import Modal from "react-modal";
+import { Fade } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import sample from "../../img/sample.jpg";
 import express from "../../img/express.svg";
 import html from "../../img/html-5.svg";
 import javascript from "../../img/javascript.svg";
@@ -9,6 +10,12 @@ import nodejs from "../../img/nodejs.svg";
 import tailwindcss from "../../img/tailwindcss-icon.svg";
 import webpack from "../../img/webpack.svg";
 import { faCode, faEye } from "@fortawesome/free-solid-svg-icons";
+
+const fadeImages = [
+  "https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
+  "https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80",
+  "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
+];
 
 const customStyles = {
   overlay: {
@@ -70,9 +77,26 @@ const Card = ({ bg, content, modalIsOpen, setModalIsOpen }) => {
           </button>
 
           <div className="grid w-full h-full grid-cols-2">
-            <div className="flex items-center">
-              <img src={sample} alt="sample" />
-            </div>
+            <Fade transitionDuration={500} className="mt-auto mb-auto">
+              <div className="each-fade">
+                <div className="image-container">
+                  <img src={fadeImages[0]} />
+                </div>
+                <h2>First Slide 1/3</h2>
+              </div>
+              <div className="each-fade">
+                <div className="image-container">
+                  <img src={fadeImages[1]} />
+                </div>
+                <h2>Second Slide 2/3</h2>
+              </div>
+              <div className="each-fade">
+                <div className="image-container">
+                  <img src={fadeImages[2]} />
+                </div>
+                <h2>Third Slide 3/3</h2>
+              </div>
+            </Fade>
             <div className="bg-input">
               <div className="flex flex-col p-5">
                 <span className="mt-5 font-bold text-gray-300">PROJECT</span>

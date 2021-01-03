@@ -35,7 +35,7 @@ const AnimationText = ({ text, milliseconds, isTitle, img }) => {
   return (
     <div
       ref={textRef}
-      className={`text-7xl animate__animated opacity-0 ${
+      className={`text-7xl animate__animated opacity-0 cursor-default ${
         isTitle ? "text-prime font-bold" : "text-white hover:text-prime"
       }`}
       onMouseEnter={addAnimation}

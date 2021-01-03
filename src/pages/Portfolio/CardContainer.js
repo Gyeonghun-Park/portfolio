@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import Card from "./Card";
 import sample from "./sample.png";
 
-const CardContainer = () => {
+const CardContainer = ({ parentRef }) => {
   const cardContainer = useRef();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   let cardWidth = 0.0;
@@ -146,7 +146,7 @@ const CardContainer = () => {
   };
 
   const nextCard = () => {
-    if (!inProgress) {
+    if (!inProgress && cardContainer.current) {
       inProgress = true;
 
       const lastCardLeft =
@@ -169,26 +169,30 @@ const CardContainer = () => {
       cardContainer.current.children[0].style.transform = "scale(0)";
 
       setTimeout(() => {
-        cardContainer.current.children[0].style.left = lastCardLeft;
-        cardContainer.current.children[0].style.zIndex = lastCardZIndex;
-        cardContainer.current.append(cardContainer.current.children[0]);
+        if (cardContainer.current) {
+          cardContainer.current.children[0].style.left = lastCardLeft;
+          cardContainer.current.children[0].style.zIndex = lastCardZIndex;
+          cardContainer.current.append(cardContainer.current.children[0]);
+        }
 
         setTimeout(() => {
-          cardContainer.current.children[
-            totalCardIndex
-          ].style.transitionDuration = "0.2s";
-          cardContainer.current.children[
-            totalCardIndex
-          ].style.transform = lastCardTransform;
+          if (cardContainer.current) {
+            cardContainer.current.children[
+              totalCardIndex
+            ].style.transitionDuration = "0.2s";
+            cardContainer.current.children[
+              totalCardIndex
+            ].style.transform = lastCardTransform;
 
-          inProgress = false;
+            inProgress = false;
+          }
         }, 10);
       }, ANIMATION_DURATION);
     }
   };
 
   const previousCard = () => {
-    if (!inProgress) {
+    if (!inProgress && cardContainer.current) {
       inProgress = true;
 
       const firstCardLeft = cardContainer.current.children[0].style.left;
@@ -211,28 +215,34 @@ const CardContainer = () => {
         "scale(0)";
 
       setTimeout(() => {
-        cardContainer.current.children[
-          totalCardIndex
-        ].style.left = firstCardLeft;
-        cardContainer.current.children[
-          totalCardIndex
-        ].style.zIndex = firstCardZIndex;
-        cardContainer.current.insertBefore(
-          cardContainer.current.children[totalCardIndex],
-          cardContainer.current.children[0]
-        );
+        if (cardContainer.current) {
+          cardContainer.current.children[
+            totalCardIndex
+          ].style.left = firstCardLeft;
+          cardContainer.current.children[
+            totalCardIndex
+          ].style.zIndex = firstCardZIndex;
+          cardContainer.current.insertBefore(
+            cardContainer.current.children[totalCardIndex],
+            cardContainer.current.children[0]
+          );
+        }
 
         setTimeout(() => {
-          cardContainer.current.children[0].style.transitionDuration = "0.2s";
-          cardContainer.current.children[0].style.transform = firstCardTransform;
+          if (cardContainer.current) {
+            cardContainer.current.children[0].style.transitionDuration = "0.2s";
+            cardContainer.current.children[0].style.transform = firstCardTransform;
 
-          inProgress = false;
+            inProgress = false;
+          }
         }, 10);
       }, ANIMATION_DURATION);
     }
   };
 
   const onDown = (e) => {
+    parentRef.current.classList.remove("cursor-grab");
+    parentRef.current.classList.add("cursor-grabbing");
     isDown = true;
     moveX = 0;
     offsetX = e.clientX;
@@ -246,6 +256,8 @@ const CardContainer = () => {
   };
 
   const onUp = () => {
+    parentRef.current.classList.remove("cursor-grabbing");
+    parentRef.current.classList.add("cursor-grab");
     isDown = false;
   };
 
@@ -266,7 +278,7 @@ const CardContainer = () => {
     <>
       <div
         ref={cardContainer}
-        className="absolute w-1/6 transition transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+        className="absolute w-1/6 transition transform -translate-x-1/2 -translate-y-1/2 cursor-pointer top-1/2 left-1/2"
       >
         <Card
           bg={"#5a0000"}
