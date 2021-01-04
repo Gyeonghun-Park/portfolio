@@ -3,6 +3,10 @@
 @import "tailwindcss/utilities";
 
 @layer base {
+  *:focus {
+    @apply outline-none;
+  }
+
   body {
     @apply bg-home;
     @apply h-full;

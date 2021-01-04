@@ -541,6 +541,11 @@ video {
   scrollbar-width: initial;
 }
 
+*:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 body {
   --tw-bg-opacity: 1;
   background-color: rgba(34, 34, 34, var(--tw-bg-opacity));

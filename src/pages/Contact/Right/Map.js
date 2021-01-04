@@ -18,7 +18,7 @@ const Map = () => {
 
   return (
     <div className="relative w-full h-screen">
-      <p className="bg-nav left-10 top-5 text-white p-5 bg-opacity-90 max-w-xs absolute z-10 whitespace-pre-line animate__animated animate__fadeInUp">
+      <p className="absolute z-10 max-w-xs p-5 text-white whitespace-pre-line bg-nav left-10 top-5 bg-opacity-90 animate__animated animate__fadeInUp">
         {`Gyeonghun Park 
           London, Ontario, Canada
           
@@ -26,7 +26,10 @@ const Map = () => {
         <span className="text-prime">@</span>
         <span>: gp112795@gmail.com</span>
       </p>
-      <div className="w-full absolute bottom-1" style={{ height: "110vh" }}>
+      <div
+        className="absolute w-full outline-none bottom-1"
+        style={{ height: "110vh" }}
+      >
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_KEY }}
           defaultCenter={{

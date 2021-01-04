@@ -105,7 +105,7 @@ const Email = () => {
               <label className="after:content"></label>
             </div>
 
-            <button className="w-20 col-start-2 py-2 transition-colors outline-none text-prime justify-self-end ring-1 ring-prime ring-opacity-75 animate__animated animate__fadeInUp animate__slower hover:bg-prime hover:text-home ">
+            <button className="w-20 col-start-2 py-2 transition-colors text-prime justify-self-end ring-1 ring-prime ring-opacity-75 animate__animated animate__fadeInUp animate__slower focus:outline-none hover:bg-prime hover:text-home ">
               SEND
             </button>
           </form>

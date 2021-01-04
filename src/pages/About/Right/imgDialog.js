@@ -1,5 +1,5 @@
 import Point from "./point.js";
-import person from "../../../img/person.jpg";
+import avatar from "../../../img/Avatar.png";
 
 const FOLLOW_SPEED = 0.08;
 const ROTATE_SPEED = 0.12;
@@ -22,12 +22,12 @@ export default class ImgDialog {
     this.sideValue = 0;
     this.isDown = false;
     this.img = new Image(60, 45);
-    this.img.src = person;
+    this.img.src = avatar;
   }
 
   resize(stageWidth, stageHeight) {
-    this.pos.x = 0;
-    this.pos.y = 0;
+    this.pos.x = 1;
+    this.pos.y = 1;
     this.target = this.pos.clone();
     this.prevPos = this.pos.clone();
   }
