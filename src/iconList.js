@@ -20,6 +20,7 @@ import mysql from "./img/mysql.svg";
 import nestjs from "./img/nestjs.svg";
 import nodejs from "./img/nodejs.svg";
 import opengl from "./img/opengl.svg";
+import postgresql from "./img/postgresql.svg";
 import pug from "./img/pug.svg";
 import python from "./img/python.svg";
 import react from "./img/react.svg";
@@ -135,6 +136,11 @@ const images = [
     icon: opengl,
     name: "opengl",
     path: "https://www.opengl.org/",
+  },
+  {
+    icon: postgresql,
+    name: "postgresql",
+    path: "https://www.postgresql.org/",
   },
   {
     icon: pug,

@@ -281,48 +281,6 @@ const CardContainer = ({ parentRef }) => {
         ref={cardContainer}
         className="absolute w-1/6 transition transform -translate-x-1/2 -translate-y-1/2 cursor-pointer top-1/2 left-1/2"
       >
-        {/* <Card
-          bg={"#5a0000"}
-          cover={sample}
-          modalIsOpen={modalIsOpen}
-          setModalIsOpen={setModalIsOpen}
-        />
-        <Card
-          bg={"#681500"}
-          cover={sample}
-          modalIsOpen={modalIsOpen}
-          setModalIsOpen={setModalIsOpen}
-        />
-        <Card
-          bg={"#644c09"}
-          cover={sample}
-          modalIsOpen={modalIsOpen}
-          setModalIsOpen={setModalIsOpen}
-        />
-        <Card
-          bg={"#1c2b11"}
-          cover={sample}
-          modalIsOpen={modalIsOpen}
-          setModalIsOpen={setModalIsOpen}
-        />
-        <Card
-          bg={"#001738"}
-          cover={sample}
-          modalIsOpen={modalIsOpen}
-          setModalIsOpen={setModalIsOpen}
-        />
-        <Card
-          bg={"#1b0f38"}
-          cover={sample}
-          modalIsOpen={modalIsOpen}
-          setModalIsOpen={setModalIsOpen}
-        />
-        <Card
-          bg={"#240737"}
-          cover={sample}
-          modalIsOpen={modalIsOpen}
-          setModalIsOpen={setModalIsOpen}
-        /> */}
         {projectList.map((project) => (
           <Card
             key={project.title}
