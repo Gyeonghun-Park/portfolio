@@ -40,6 +40,7 @@ const Card = ({
   about,
   demo,
   code,
+  index,
   modalIsOpen,
   setModalIsOpen,
 }) => {
@@ -54,13 +55,21 @@ const Card = ({
       }}
     >
       <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={() => setModalIsOpen(false)}
+        isOpen={modalIsOpen[index]}
+        onRequestClose={() => {
+          const tmp = {};
+          tmp[index] = false;
+          setModalIsOpen((prev) => ({ ...prev, ...tmp }));
+        }}
         style={customStyles}
       >
         <div className="w-full h-full animate__animated animate__fadeIn">
           <button
-            onClick={() => setModalIsOpen(false)}
+            onClick={() => {
+              const tmp = {};
+              tmp[index] = false;
+              setModalIsOpen((prev) => ({ ...prev, ...tmp }));
+            }}
             className="absolute top-0 right-0 z-50 flex flex-col items-center mt-4 mr-4 text-sm text-white"
           >
             <svg

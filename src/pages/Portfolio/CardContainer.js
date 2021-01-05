@@ -1,11 +1,12 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import Card from "./Card";
-import sample from "./sample.png";
 import projectList from "./projectList";
 
 const CardContainer = ({ parentRef }) => {
   const cardContainer = useRef();
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState({
+    0: false,
+  });
   let cardWidth = 0.0;
   let totalCardIndex = 0;
   let middleCard = 0;
@@ -64,11 +65,18 @@ const CardContainer = ({ parentRef }) => {
             setTimeout(() => nextCard(), totalTime);
           }
         } else {
-          setModalIsOpen(true);
+          const tmp = {};
+          tmp[i] = true;
+          setModalIsOpen((prev) => ({ ...prev, ...tmp }));
           return;
         }
+        const tmp = {};
+        tmp[i] = true;
         totalTime += ANIMATION_DURATION * 3;
-        setTimeout(() => setModalIsOpen(true), totalTime);
+        setTimeout(
+          () => setModalIsOpen((prev) => ({ ...prev, ...tmp })),
+          totalTime
+        );
       });
     }
   };
@@ -281,7 +289,7 @@ const CardContainer = ({ parentRef }) => {
         ref={cardContainer}
         className="absolute w-1/6 transition transform -translate-x-1/2 -translate-y-1/2 cursor-pointer top-1/2 left-1/2"
       >
-        {projectList.map((project) => (
+        {projectList.map((project, i) => (
           <Card
             key={project.title}
             bg={project.bg}
@@ -292,6 +300,7 @@ const CardContainer = ({ parentRef }) => {
             about={project.about}
             demo={project.demo}
             code={project.code}
+            index={i}
             modalIsOpen={modalIsOpen}
             setModalIsOpen={setModalIsOpen}
           />
