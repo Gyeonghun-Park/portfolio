@@ -1,14 +1,13 @@
 import Text from "./text.js";
 import Particle from "./particle.js";
 import * as PIXI from "pixi.js";
+import particle from "../../../img/particle.png";
 
 export default class Visual {
   constructor() {
     this.text = new Text();
 
-    this.texture = PIXI.Texture.from(
-      "https://s18.postimg.cc/ko57y4qg9/particle.png"
-    );
+    this.texture = PIXI.Texture.from(particle);
 
     this.particles = [];
 
