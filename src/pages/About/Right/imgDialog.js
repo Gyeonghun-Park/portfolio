@@ -5,8 +5,7 @@ const FOLLOW_SPEED = 0.08;
 const ROTATE_SPEED = 0.12;
 const MAX_ANGLE = 30;
 const FPS = 1000 / 60;
-const WIDTH = 260;
-const HEIGHT = 260;
+const RESOLUTION = 8;
 
 export default class ImgDialog {
   constructor() {
@@ -18,6 +17,8 @@ export default class ImgDialog {
     this.mousePos = new Point();
     this.centerPos = new Point();
     this.origin = new Point();
+    this.width = window.innerWidth / RESOLUTION;
+    this.height = window.innerWidth / RESOLUTION;
     this.rotation = 0;
     this.sideValue = 0;
     this.isDown = false;
@@ -26,6 +27,8 @@ export default class ImgDialog {
   }
 
   resize(stageWidth, stageHeight) {
+    this.width = window.innerWidth / RESOLUTION;
+    this.height = window.innerWidth / RESOLUTION;
     this.pos.x = 1;
     this.pos.y = 1;
     this.target = this.pos.clone();
@@ -58,20 +61,26 @@ export default class ImgDialog {
     ctx.save();
     ctx.translate(tmpPos.x, tmpPos.y);
     ctx.rotate((this.rotation * Math.PI) / 180);
-    ctx.drawImage(this.img, -this.origin.x, -this.origin.y, WIDTH, HEIGHT);
+    ctx.drawImage(
+      this.img,
+      -this.origin.x,
+      -this.origin.y,
+      this.width,
+      this.height
+    );
     ctx.restore();
   }
 
   down(point) {
-    if (point.collide(this.pos, WIDTH, HEIGHT)) {
+    if (point.collide(this.pos, this.width, this.height)) {
       this.isDown = true;
       this.speedPos = this.pos.clone();
       this.downPos = point.clone();
       this.mousePos = point.clone().subtract(this.pos);
 
-      const xRatioValue = this.mousePos.x / WIDTH;
-      this.origin.x = WIDTH * xRatioValue;
-      this.origin.y = (HEIGHT * this.mousePos.y) / HEIGHT;
+      const xRatioValue = this.mousePos.x / this.width;
+      this.origin.x = this.width * xRatioValue;
+      this.origin.y = (this.height * this.mousePos.y) / this.height;
 
       this.sideValue = xRatioValue - 0.5;
 

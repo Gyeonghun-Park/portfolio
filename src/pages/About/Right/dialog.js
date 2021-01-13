@@ -4,8 +4,7 @@ const FOLLOW_SPEED = 0.08;
 const ROTATE_SPEED = 0.12;
 const MAX_ANGLE = 30;
 const FPS = 1000 / 60;
-const WIDTH = 260;
-const HEIGHT = 260;
+const RESOLUTION = 8;
 
 export default class Dialog {
   constructor(text) {
@@ -17,6 +16,8 @@ export default class Dialog {
     this.mousePos = new Point();
     this.centerPos = new Point();
     this.origin = new Point();
+    this.width = window.innerWidth / RESOLUTION;
+    this.height = window.innerWidth / RESOLUTION;
     this.rotation = 0;
     this.sideValue = 0;
     this.isDown = false;
@@ -24,10 +25,12 @@ export default class Dialog {
   }
 
   resize(stageWidth, stageHeight) {
+    this.width = window.innerWidth / RESOLUTION;
+    this.height = window.innerWidth / RESOLUTION;
     const random = Math.random();
-    this.pos.x = Math.random() * (stageWidth - WIDTH);
+    this.pos.x = Math.random() * (stageWidth - this.width);
     this.pos.y =
-      (random > 0.5 ? random : random + 0.5) * (stageHeight - HEIGHT);
+      (random > 0.5 ? random : random + 0.5) * (stageHeight - this.height);
     this.target = this.pos.clone();
     this.prevPos = this.pos.clone();
   }
@@ -60,29 +63,29 @@ export default class Dialog {
     ctx.rotate((this.rotation * Math.PI) / 180);
     ctx.beginPath();
     ctx.fillStyle = "#f4e55a";
-    ctx.fillRect(-this.origin.x, -this.origin.y, WIDTH, HEIGHT);
+    ctx.fillRect(-this.origin.x, -this.origin.y, this.width, this.height);
     ctx.fillStyle = "#222222";
-    ctx.font = "40px Arial";
+    ctx.font = `${this.width / 6}px Arial`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(
       this.text,
-      -this.origin.x + WIDTH / 2,
-      -this.origin.y + HEIGHT / 2
+      -this.origin.x + this.width / 2,
+      -this.origin.y + this.height / 2
     );
     ctx.restore();
   }
 
   down(point) {
-    if (point.collide(this.pos, WIDTH, HEIGHT)) {
+    if (point.collide(this.pos, this.width, this.height)) {
       this.isDown = true;
       this.speedPos = this.pos.clone();
       this.downPos = point.clone();
       this.mousePos = point.clone().subtract(this.pos);
 
-      const xRatioValue = this.mousePos.x / WIDTH;
-      this.origin.x = WIDTH * xRatioValue;
-      this.origin.y = (HEIGHT * this.mousePos.y) / HEIGHT;
+      const xRatioValue = this.mousePos.x / this.width;
+      this.origin.x = this.width * xRatioValue;
+      this.origin.y = (this.height * this.mousePos.y) / this.height;
 
       this.sideValue = xRatioValue - 0.5;
 

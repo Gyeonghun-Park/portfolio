@@ -176,7 +176,13 @@ const SwingBox = () => {
     }
   };
 
-  return <div ref={targetRef} className="relative w-full h-full"></div>;
+  return (
+    <div
+      ref={targetRef}
+      className="relative w-full h-full"
+      id={"swingCanvas"}
+    ></div>
+  );
 };
 
 export default SwingBox;
