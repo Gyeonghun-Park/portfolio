@@ -10,7 +10,7 @@ const SwingBox = () => {
   let ctx;
   let animations = [];
 
-  const pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
+  const pixelRatio = window.devicePixelRatio > 1 ? 1 : 1;
 
   const mousePos = new Point();
   let curItem = null;

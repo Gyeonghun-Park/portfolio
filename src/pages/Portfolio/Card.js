@@ -2,7 +2,7 @@ import Modal from "react-modal";
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faCode, faEye } from "@fortawesome/free-solid-svg-icons";
 
 const customStyles = {
   overlay: {
@@ -16,10 +16,10 @@ const customStyles = {
   },
   content: {
     position: "absolute",
-    top: "15vh",
-    left: "20vw",
-    right: "20vw",
-    bottom: "15vh",
+    top: "8vh",
+    left: "15vw",
+    right: "15vw",
+    bottom: "8vh",
     border: "1px solid #3b3b3b",
     background: "#222222",
     WebkitOverflowScrolling: "touch",
@@ -37,7 +37,7 @@ const Card = ({
   previews,
   title,
   icons,
-  about,
+  cfs,
   demo,
   code,
   index,
@@ -82,7 +82,6 @@ const Card = ({
               <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
             </svg>
           </button>
-
           <div className="grid w-full h-full grid-cols-2">
             <Fade transitionDuration={300} autoPlay={false} className="my-auto">
               {previews.map((preview, i) => (
@@ -99,13 +98,15 @@ const Card = ({
               ))}
             </Fade>
             <div className="bg-input">
-              <div className="flex flex-col p-5">
-                <span className="mt-5 font-bold text-gray-50">PROJECT</span>
-                <span className="mt-3 text-3xl font-extrabold text-gray-300">
-                  {title}
-                </span>
-                <span className="mt-5 text-gray-50">What did I use?</span>
-                <div className="grid items-center grid-flow-col gap-4 px-5 mt-5 auto-cols-fr justify-items-centert">
+              <div className="flex flex-col justify-center h-full p-5">
+                <div className="flex flex-col my-auto">
+                  <span className="font-bold text-gray-200">PROJECT</span>
+                  <span className="mt-1 text-3xl font-extrabold text-gray-50">
+                    {title}
+                  </span>
+                </div>
+                <span className="my-auto text-gray-50">What did I use?</span>
+                <div className="grid items-center grid-flow-col gap-4 px-5 my-auto mt-5 auto-cols-fr justify-items-centert">
                   {icons.map((icon) => (
                     <a
                       key={icon.name}
@@ -117,23 +118,48 @@ const Card = ({
                     </a>
                   ))}
                 </div>
-                <span className="mt-3 text-2xl font-bold text-gray-50">
-                  About
+                <span className="my-auto mt-3 text-2xl font-bold text-gray-50">
+                  Concept & Funtions
                 </span>
-                <span className="p-3 mt-2 overflow-auto text-gray-300 h-72 max-h-72 scrollbar-thin scrollbar-track-black-300 scrollbar-thumb-tag">
-                  {about}
-                </span>
-                <div className="grid items-center grid-cols-2 mt-5 justify-items-center">
+                <div
+                  className="flex flex-col items-center p-3 my-auto overflow-auto scrollbar-thin scrollbar-track-black-300 scrollbar-thumb-tag"
+                  style={{ maxHeight: `40vh` }}
+                >
+                  {cfs.map((cf) => (
+                    <div
+                      key={cf.title}
+                      className="w-full p-3 mt-3 mr-4 bg-black-100"
+                    >
+                      <div className="p-2 text-2xl font-extrabold text-center bg-black-400">
+                        {cf.title}
+                      </div>
+                      <div className="px-4 pt-4">
+                        {cf.contents.map((content, i) => (
+                          <div key={i} className="flex my-1 text-black-900">
+                            <FontAwesomeIcon
+                              icon={faCheck}
+                              className="mt-1 mr-3 text-prime"
+                            />
+                            <span className="text-lg font-medium">
+                              {content}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="grid items-center grid-cols-2 my-auto justify-items-center">
                   <a target="_blank" rel="noreferrer" href={demo}>
-                    <button className="p-3 bg-gray-700 w-36">
-                      <FontAwesomeIcon icon={faEye} />
-                      &nbsp;DEMO
+                    <button className="p-2 bg-gray-700 w-36">
+                      <FontAwesomeIcon icon={faEye} className="mr-3" />
+                      DEMO
                     </button>
                   </a>
                   <a target="_blank" rel="noreferrer" href={code}>
-                    <button className="p-3 bg-gray-700 w-36">
-                      <FontAwesomeIcon icon={faCode} />
-                      &nbsp;CODE
+                    <button className="p-2 bg-gray-700 w-36">
+                      <FontAwesomeIcon icon={faCode} className="mr-3" />
+                      CODE
                     </button>
                   </a>
                 </div>

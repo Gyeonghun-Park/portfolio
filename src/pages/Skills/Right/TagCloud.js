@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import IconList from "./IconList";
-import iconList from "../../../iconList";
+import { icons } from "../../../iconList";
 
 const TagCloud = () => {
   const targetRef = useRef();
@@ -46,7 +46,7 @@ const TagCloud = () => {
     <div className="flex justify-center w-full h-full max-h-full">
       <div ref={targetRef} className="w-full" id="myCanvasContainer"></div>
       <div className="absolute flex w-full">
-        <IconList icons={iconList} />
+        <IconList icons={icons} />
       </div>
     </div>
   );
