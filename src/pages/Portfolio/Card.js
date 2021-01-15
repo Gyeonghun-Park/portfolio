@@ -83,17 +83,37 @@ const Card = ({
             </svg>
           </button>
           <div className="grid w-full h-full grid-cols-2">
-            <Fade transitionDuration={300} autoPlay={false} className="my-auto">
+            <Fade
+              transitionDuration={300}
+              autoplay={false}
+              className="flex flex-col justify-center h-full"
+            >
               {previews.map((preview, i) => (
                 <div
                   key={preview.desc}
                   className="flex flex-col items-center each-slide"
                 >
-                  <img src={preview.preview} alt={preview.desc} />
-                  <span className="mt-5 text-2xl text-gray-300">{`${preview.desc}`}</span>
-                  <span className="mt-5 text-2xl text-gray-300">{`${i + 1} / ${
-                    previews.length
-                  }`}</span>
+                  <img
+                    src={preview.preview}
+                    alt={preview.desc}
+                    className="my-auto"
+                  />
+                  {preview.src && (
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href={preview.src}
+                      className="mt-5"
+                    >
+                      <button className="p-2 bg-gray-700 w-36">
+                        View on Web
+                      </button>
+                    </a>
+                  )}
+                  <span className="mt-5 text-2xl text-white">{`${preview.desc}`}</span>
+                  <span className="my-auto text-xl text-gray-300">{`${
+                    i + 1
+                  } / ${previews.length}`}</span>
                 </div>
               ))}
             </Fade>

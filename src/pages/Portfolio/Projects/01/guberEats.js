@@ -8,25 +8,29 @@ import {
   tailwindcssIcon,
 } from "../../../../iconList";
 import cover from "./cover.png";
+import first from "./first.gif";
+import second from "./second.gif";
+import third from "./third.png";
 
 const guberEats = {
   bg: "#5a0000",
   cover: cover,
   previews: [
     {
-      preview:
-        "https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-      desc: "First Preview",
+      preview: first,
+      desc: "Real-time interactions between users",
+      src:
+        "https://thawing-journey-31791.herokuapp.com/videos/6000e50c9fe3e900629e2e4a",
     },
     {
-      preview:
-        "https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80",
-      desc: "Second Preview",
+      preview: second,
+      desc: "E2E Testing + Unit Testing",
+      src:
+        "https://thawing-journey-31791.herokuapp.com/videos/6000e8a79fe3e900629e2e4c",
     },
     {
-      preview:
-        "https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-      desc: "Third Preview",
+      preview: third,
+      desc: "Data visualization with Victory",
     },
   ],
   title: "Guber Eats",
@@ -85,8 +89,8 @@ const guberEats = {
       ],
     },
   ],
-  demo: "https://github.com/Gyeonghun-Park",
-  code: "https://github.com/Gyeonghun-Park",
+  demo: "https://inspiring-brown-4efdef.netlify.app/",
+  code: "https://github.com/Gyeonghun-Park/guber-eats-backend",
 };
 
 export default guberEats;
