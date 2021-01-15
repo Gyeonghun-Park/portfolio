@@ -1,3 +1,4 @@
+import aws from "./img/aws.svg";
 import babel from "./img/babel.svg";
 import cplusplus from "./img/c-plusplus.svg";
 import csharp from "./img/c-sharp.svg";
@@ -6,6 +7,7 @@ import css from "./img/css-3.svg";
 import deno from "./img/deno.svg";
 import django from "./img/django.svg";
 import dotnet from "./img/dotnet.svg";
+import expo from "./img/expo.svg";
 import express from "./img/express.svg";
 import firebase from "./img/firebase.svg";
 import git from "./img/git-icon.svg";
@@ -29,6 +31,12 @@ import sass from "./img/sass.svg";
 import tailwindcss from "./img/tailwindcss-icon.svg";
 import typescript from "./img/typescript-icon.svg";
 import webpack from "./img/webpack.svg";
+
+export const awsIcon = {
+  icon: aws,
+  name: "aws",
+  path: "https://aws.amazon.com/",
+};
 
 export const babelIcon = {
   icon: babel,
@@ -76,6 +84,12 @@ export const dotnetIcon = {
   icon: dotnet,
   name: "dotnet",
   path: "https://dotnet.microsoft.com/",
+};
+
+export const expoIcon = {
+  icon: expo,
+  name: "expo",
+  path: "https://expo.io/",
 };
 
 export const expressIcon = {
@@ -217,6 +231,7 @@ export const webpackIcon = {
 };
 
 export const icons = [
+  awsIcon,
   babelIcon,
   cplusplusIcon,
   csharpIcon,
@@ -225,6 +240,7 @@ export const icons = [
   denoIcon,
   djangoIcon,
   dotnetIcon,
+  expoIcon,
   expressIcon,
   firebaseIcon,
   gitIcon,

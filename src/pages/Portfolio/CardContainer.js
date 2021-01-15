@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import Card from "./Card";
-import projectList from "./Projects/projectList";
+import { projectList, backGrounds } from "./Projects/projectList";
 
 const CardContainer = ({ parentRef }) => {
   const cardContainer = useRef();
@@ -292,7 +292,7 @@ const CardContainer = ({ parentRef }) => {
         {projectList.map((project, i) => (
           <Card
             key={i}
-            bg={project.bg}
+            bg={backGrounds[i]}
             cover={project.cover}
             previews={project.previews}
             title={project.title}

@@ -13,7 +13,6 @@ import second from "./second.gif";
 import third from "./third.png";
 
 const guberEats = {
-  bg: "#5a0000",
   cover: cover,
   previews: [
     {

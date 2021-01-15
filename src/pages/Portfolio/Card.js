@@ -126,7 +126,7 @@ const Card = ({
                   </span>
                 </div>
                 <span className="my-auto text-gray-50">What did I use?</span>
-                <div className="grid items-center grid-flow-col gap-4 px-5 my-auto mt-5 auto-cols-fr justify-items-centert">
+                <div className="grid items-center grid-flow-col gap-4 px-5 my-auto mt-5 auto-cols-fr justify-items-center">
                   {icons.map((icon) => (
                     <a
                       key={icon.name}
