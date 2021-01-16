@@ -12,11 +12,15 @@ const Skills = () => {
             <TextCotainer sentences={["Skills & Abilities"]} isTitle />
           </div>
           <div className="w-9/12 my-10 text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            maximus congue orci mattis sagittis. Donec vitae pellentesque diam,
-            in tristique sem. Vestibulum et urna libero. In nec tincidunt justo.
-            Donec dignissim imperdiet velit vitae malesuada. Aenean id neque nec
-            ipsum dapibus condimentum.
+            I have a firm knowledge of HTML, CSS and JavaScript language and
+            possess a good knowledge of computer software packages (frameworks
+            and tools) that are used in today’s technology.
+          </div>
+          <div className="w-9/12 mb-10 text-gray-300">
+            I know the importance of staying on top of the latest development
+            trends. From DevSecOps to low-code apps, software development trends
+            change as fast as technology itself. So I am experiencing as many
+            things as I can to adapt to the fast-changing trends at any time.
           </div>
           <div className="w-9/12 mb-10 text-gray-300">
             On the right is a sphere made up of my proficient programming

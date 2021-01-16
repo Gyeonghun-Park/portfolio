@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PageContainer from "../../components/Container";
 import TextCotainer from "../../components/TextCotainer";
 import SwingBox from "./Right/SwingBox";
@@ -6,20 +7,40 @@ const About = () => {
   return (
     <PageContainer
       left={
-        <div className="flex flex-col items-center justify-center pb-20">
+        <div className="flex flex-col items-center justify-center pb-20 ">
           <div className="w-10/12">
             <TextCotainer sentences={["About Me"]} isTitle />
           </div>
           <div className="w-9/12 my-10 text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            maximus congue orci mattis sagittis. Donec vitae pellentesque diam,
-            in tristique sem. Vestibulum et urna libero. In nec tincidunt justo.
-            Donec dignissim imperdiet velit vitae malesuada. Aenean id neque nec
-            ipsum dapibus condimentum.
+            I am studying with the goal of becoming a full-stack developer.
+            Overall, I have been cloning various services in real-word to
+            increase my knowledge and experience in development. You can try the
+            projects I've cloned on my&nbsp;
+            <Link to="/portfolio" className="underline text-prime">
+              portfolio
+            </Link>
+            &nbsp;page.
           </div>
+
           <div className="w-9/12 mb-10 text-gray-300">
-            In nec tincidunt justo. Donec dignissim imperdiet velit vitae
-            malesuada. Aenean id neque nec ipsum dapibus condimentum.
+            Currently, I'm enjoying React.js at and love to make simple and
+            beautiful interface and also I’m interested in learning more about
+            accessibility and delving deeper into CSS/JS animations.
+          </div>
+
+          <div className="w-9/12 mb-10 text-gray-300">
+            On a personal level, I am highly-motivated, result oriented,
+            self-driven, hard-working, fast learner and constantly seeking to
+            improve my skills and am fully aware of the latest development
+            skills.
+          </div>
+
+          <div className="w-9/12 mb-10 text-gray-300">
+            In addition to this, I have the ability to adapt to any type of team
+            environment, I am team oriented and get along with others when
+            working in a group setting. I also have the ability to work
+            independently while staying on schedule and meeting those tight
+            deadlines.
           </div>
         </div>
       }
