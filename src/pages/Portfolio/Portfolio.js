@@ -8,15 +8,13 @@ const Portfolio = () => {
   return (
     <div
       ref={containerRef}
-      className="relative flex justify-center w-full my-10 animate__animated animate__fadeIn animate__slow cursor-grab"
+      className="relative flex justify-center w-full my-10 animate__animated animate__fadeIn animate__slow cursor-grab overflow-hidden pt-28"
     >
       <Tag top="0" left="10" text="html" />
       <Tag top="5" left="16" text="body" />
 
       <div>
-        <TextCotainer
-          sentences={["Hello!", "I'm Gyeonghun", "Passionate Student."]}
-        />
+        <TextCotainer sentences={["Toy Projects"]} isTitle />
       </div>
       <CardContainer parentRef={containerRef} />
 

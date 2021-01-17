@@ -285,10 +285,7 @@ const CardContainer = ({ parentRef }) => {
 
   return (
     <>
-      <div
-        ref={cardContainer}
-        className="absolute w-1/6 transition transform -translate-x-1/2 -translate-y-1/2 cursor-pointer top-1/2 left-1/2"
-      >
+      <div ref={cardContainer} className="absolute top-1/2 mr-56">
         {projectList.map((project, i) => (
           <Card
             key={i}
