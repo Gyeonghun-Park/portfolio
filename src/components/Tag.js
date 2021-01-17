@@ -5,8 +5,14 @@ const Tag = ({ top, left, bottom, text }) => {
     <span
       className={clsx(
         `absolute font-tag text-tag text-xs
-      ${top ? `top-${top}` : ""}
-      ${bottom ? `bottom-${bottom}` : ""}
+      ${top ? (top > 0 ? `top-${top}` : `-top-${Math.abs(top)}`) : ""}
+      ${
+        bottom
+          ? bottom > 0
+            ? `bottom-${bottom}`
+            : `-bottom-${Math.abs(bottom)}`
+          : ""
+      }
       ${left ? `left-${left}` : ""}`,
         "lg:text-xl"
       )}

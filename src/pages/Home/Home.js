@@ -14,8 +14,8 @@ const Home = () => {
           />
           <span
             className={clsx(
-              "text-xs absolute font-bold text-gray-500 bottom-20 left-12",
-              "lg:text-base lg:bottom-24 lg:left-20"
+              "text-xs absolute font-bold text-gray-500 bottom-12 left-14",
+              "lg:text-base lg:bottom-14 lg:left-14"
             )}
           >
             Full Stack Developer &nbsp;/&nbsp; Computer Science Student
@@ -23,8 +23,8 @@ const Home = () => {
           <Link to="/contact">
             <button
               className={clsx(
-                "w-32 py-2 transition-colors text-prime ml-14 ring-1 ring-prime ring-opacity-75 focus:outline-none hover:bg-prime hover:text-home",
-                "lg:mt-10"
+                "w-32 py-2 transition-colors text-prime ml-14 ring-1 ring-prime ring-opacity-75 focus:outline-none hover:bg-prime hover:text-home mt-4",
+                "lg:mt-20"
               )}
             >
               Contact Me!

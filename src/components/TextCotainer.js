@@ -1,6 +1,16 @@
+import { useEffect, useState } from "react";
 import AnimationText from "./AnimationText";
 import Tag from "./Tag";
 import G from "../img/G.png";
+import clsx from "clsx";
+
+const getWindowDimensions = () => {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height,
+  };
+};
 
 const TextCotainer = ({ sentences, isTitle }) => {
   let milliseconds = 1000;
@@ -13,9 +23,32 @@ const TextCotainer = ({ sentences, isTitle }) => {
     return texts;
   };
 
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  );
+  const [mobileOpen, setMobileOpen] = useState(windowDimensions.width < 1024);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowDimensions(getWindowDimensions());
+      if (windowDimensions.width < 1024) {
+        setMobileOpen(true);
+      } else {
+        setMobileOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className="relative p-12">
-      <Tag top="7" left="5" text="h1" />
+    <div className={clsx("relative px-12 py-4", "xl:py-0")}>
+      <Tag
+        top={mobileOpen ? "2" : "-2"}
+        left={mobileOpen ? "7" : "5"}
+        text="h1"
+      />
       {sentences.map((sentence, i) => {
         const tmp = textFactory(sentence).map((text, j) => {
           milliseconds += 100;
@@ -48,7 +81,11 @@ const TextCotainer = ({ sentences, isTitle }) => {
           </div>
         );
       })}
-      <Tag bottom="0" left="5" text="/h1" />
+      <Tag
+        bottom={mobileOpen ? "1" : "-6"}
+        left={mobileOpen ? "7" : "5"}
+        text="/h1"
+      />
     </div>
   );
 };

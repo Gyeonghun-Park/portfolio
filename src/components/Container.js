@@ -3,20 +3,25 @@ import Tag from "./Tag";
 
 const Container = ({ left, right }) => {
   return (
-    <div className="my-10 w-full relative animate__animated animate__fadeIn animate__slow">
+    <div className="relative w-full my-10 animate__animated animate__fadeIn animate__slow">
       <Tag top="0" left="10" text="html" />
       <Tag top="5" left="16" text="body" />
 
       <div
         className={clsx(
           "w-full h-full grid grid-rows-2 justify-items-center items-center",
-          "xl:grid-cols-2 xl:grid-rows-1"
+          "xl:grid-cols-2 xl:grid-rows-1 "
         )}
       >
-        <div className="flex justify-center items-center w-full h-full">
+        <div
+          className={clsx(
+            "items-center justify-center w-full h-full overflow-scroll",
+            "xl:mt-0 xl:flex xl:overflow-hidden"
+          )}
+        >
           {left}
         </div>
-        <div className="flex justify-center items-center w-full h-full">
+        <div className="flex items-center justify-center w-full h-full overflow-hidden">
           {right}
         </div>
       </div>
