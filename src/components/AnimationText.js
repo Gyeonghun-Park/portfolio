@@ -40,8 +40,8 @@ const AnimationText = ({ text, milliseconds, isTitle, img }) => {
         `text-3xl animate__animated opacity-0 cursor-default ${
           isTitle ? "text-prime font-bold" : "text-white hover:text-prime"
         }`,
-        "lg:text-6xl",
-        "2xl:text-8xl"
+        "lg:text-5xl",
+        "2xl:text-7xl"
       )}
       onMouseEnter={addAnimation}
     >
@@ -53,8 +53,8 @@ const AnimationText = ({ text, milliseconds, isTitle, img }) => {
           alt="G"
           className={clsx(
             "w-6 h-6 mt-2",
-            "lg:w-14 lg:h-14 ",
-            "2xl:w-20 2xl:h-20 2xl:mt-6"
+            "lg:w-12 lg:h-12 ",
+            "2xl:w-14 2xl:h-14 2xl:mt-4"
           )}
           id="imageText"
         />

@@ -9,7 +9,11 @@ const RESOLUTION = 8;
 
 export default class ImgDialog {
   constructor() {
-    this.pos = new Point();
+    if (window.innerWidth < 1024) {
+      this.pos = new Point(100, 100);
+    } else {
+      this.pos = new Point(50, 50);
+    }
     this.target = new Point();
     this.prevPos = new Point();
     this.downPos = new Point();
@@ -29,10 +33,16 @@ export default class ImgDialog {
   resize(stageWidth, stageHeight) {
     this.width = window.innerWidth / RESOLUTION;
     this.height = window.innerWidth / RESOLUTION;
-    this.pos.x = 1;
-    this.pos.y = 1;
     this.target = this.pos.clone();
     this.prevPos = this.pos.clone();
+
+    if (window.innerWidth < 1024) {
+      this.pos.x = 50;
+      this.pos.y = 50;
+    } else {
+      this.pos.x = 0;
+      this.pos.y = 0;
+    }
   }
 
   animate(ctx) {

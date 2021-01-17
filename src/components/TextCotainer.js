@@ -45,7 +45,7 @@ const TextCotainer = ({ sentences, isTitle }) => {
   return (
     <div className={clsx("relative px-12 py-4", "xl:py-0")}>
       <Tag
-        top={mobileOpen ? "2" : "-2"}
+        top={mobileOpen ? "2" : "-5"}
         left={mobileOpen ? "7" : "5"}
         text="h1"
       />
@@ -82,7 +82,7 @@ const TextCotainer = ({ sentences, isTitle }) => {
         );
       })}
       <Tag
-        bottom={mobileOpen ? "1" : "-6"}
+        bottom={mobileOpen ? "1" : "-8"}
         left={mobileOpen ? "7" : "5"}
         text="/h1"
       />
