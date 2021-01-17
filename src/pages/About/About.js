@@ -10,8 +10,8 @@ const About = () => {
       left={
         <div
           className={clsx(
-            "flex flex-col items-center justify-center pt-10",
-            ""
+            "flex flex-col items-center justify-center pt-10 pb-5",
+            "xl:pb-0"
           )}
         >
           <div className={clsx("", "xl:w-10/12")}>

@@ -3,6 +3,7 @@ import TextCotainer from "../../../components/TextCotainer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Email.css";
+import clsx from "clsx";
 
 const Email = () => {
   const sendEmail = (e) => {
@@ -43,26 +44,42 @@ const Email = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center pb-20">
+    <div
+      className={clsx(
+        "flex flex-col items-center justify-center pt-10 pb-5",
+        "lg:pb-0"
+      )}
+    >
       <ToastContainer
         bodyClassName={() => "text-sm text-white font-medium block p-4"}
         position="bottom-right"
       />
       <div className="flex flex-col items-center ">
-        <div className="w-10/12">
+        <div className="xl:w-10/12">
           <TextCotainer sentences={["Contact me"]} isTitle />
         </div>
-        <div className="w-9/12 mt-5 ml-2 text-3xl font-bold text-gray-100">
+        <div
+          className={clsx(
+            "w-9/12 mt-3 ml-2 text-3xl font-bold text-gray-100",
+            "lg:mt-8"
+          )}
+        >
           Let's make something great!
         </div>
-        <div className="w-9/12 my-8 ml-2 text-gray-300">
+        <div
+          className={clsx(
+            "w-9/12 my-3 ml-2 text-gray-300 text-base",
+            "lg:text-sm",
+            "2xl:text-lg"
+          )}
+        >
           I'm seeking out opportunities to work with companies / agencies /
           individuals. We can work together to solve real business-problems in a
           way that optimizes all of our respective experience and knowledge! If
           you have other request or question, don’t hesitate to contact me using
           below form either.
         </div>
-        <div className="w-9/12">
+        <div className={clsx("w-9/12 text-base", "lg:text-sm", "2xl:text-lg")}>
           <form className="grid grid-cols-2 gap-3" onSubmit={sendEmail}>
             <div className="relative overflow-hidden animate__animated animate__fadeInUp animate__faster">
               <input

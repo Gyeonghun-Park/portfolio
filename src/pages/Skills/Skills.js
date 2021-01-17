@@ -36,7 +36,12 @@ const Skills = () => {
   return (
     <PageContainer
       left={
-        <div className="flex flex-col items-center justify-center pt-10">
+        <div
+          className={clsx(
+            "flex flex-col items-center justify-center pt-10 pb-5",
+            "xl:pb-0"
+          )}
+        >
           <div className="xl:w-10/12">
             <TextCotainer sentences={["Skills & Abilities"]} isTitle />
           </div>

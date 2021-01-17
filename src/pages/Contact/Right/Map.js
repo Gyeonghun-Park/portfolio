@@ -1,6 +1,16 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import markerIcon from "../../../img/Marker.svg";
+import { useEffect, useState } from "react";
+import clsx from "clsx";
+
+const getWindowDimensions = () => {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height,
+  };
+};
 
 const Map = () => {
   const LAT = 42.999788256588396;
@@ -9,16 +19,44 @@ const Map = () => {
     let marker = new maps.Marker({
       position: { lat: LAT, lng: LNG },
       map,
-      title: "Hello World!",
       animation: window.google.maps.Animation.DROP,
-      icon: markerIcon,
+      icon: {
+        url: markerIcon,
+        scaledSize: mobileOpen
+          ? new window.google.maps.Size(50, 50)
+          : new window.google.maps.Size(120, 120),
+      },
     });
     return marker;
   };
 
+  const [windowDimensions, setWindowDimensions] = useState(
+    getWindowDimensions()
+  );
+  const [mobileOpen, setMobileOpen] = useState(windowDimensions.width < 1024);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowDimensions(getWindowDimensions());
+      if (windowDimensions.width < 1024) {
+        setMobileOpen(true);
+      } else {
+        setMobileOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className="relative w-full h-screen">
-      <p className="absolute z-10 max-w-xs p-5 text-white whitespace-pre-line bg-nav left-10 top-5 bg-opacity-90 animate__animated animate__fadeInUp">
+    <div className="relative w-full h-full mt-16">
+      <p
+        className={clsx(
+          "text-sm absolute z-10 max-w-xs p-2 text-white whitespace-pre-line bg-nav left-0 -top-2 bg-opacity-90 animate__animated animate__fadeInUp",
+          "lg:left-10 lg:top-5 lg:text-lg lg:p-5"
+        )}
+      >
         {`Gyeonghun Park 
           London, Ontario, Canada
           
@@ -26,17 +64,21 @@ const Map = () => {
         <span className="text-prime">@</span>
         <span>: gp112795@gmail.com</span>
       </p>
-      <div
-        className="absolute w-full outline-none bottom-1"
-        style={{ height: "110vh" }}
-      >
+      <div className="absolute w-full outline-none bottom-1 h-full">
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_KEY }}
-          defaultCenter={{
-            lat: LAT + 4,
-            lng: LNG - 4,
-          }}
-          defaultZoom={6}
+          defaultCenter={
+            mobileOpen
+              ? {
+                  lat: LAT + 2.5,
+                  lng: LNG - 4,
+                }
+              : {
+                  lat: LAT + 4,
+                  lng: LNG - 4,
+                }
+          }
+          defaultZoom={mobileOpen ? 5 : 6}
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => renderMarkers(map, maps)}
           options={{
