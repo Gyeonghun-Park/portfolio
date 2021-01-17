@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { useEffect, useRef } from "react";
 
 const AnimationText = ({ text, milliseconds, isTitle, img }) => {
@@ -35,15 +36,28 @@ const AnimationText = ({ text, milliseconds, isTitle, img }) => {
   return (
     <div
       ref={textRef}
-      className={`text-7xl animate__animated opacity-0 cursor-default ${
-        isTitle ? "text-prime font-bold" : "text-white hover:text-prime"
-      }`}
+      className={clsx(
+        `text-3xl animate__animated opacity-0 cursor-default ${
+          isTitle ? "text-prime font-bold" : "text-white hover:text-prime"
+        }`,
+        "lg:text-6xl",
+        "2xl:text-8xl"
+      )}
       onMouseEnter={addAnimation}
     >
       {text ? (
         text
       ) : (
-        <img src={img} alt="G" className="w-16 h-16 mt-2" id="imageText" />
+        <img
+          src={img}
+          alt="G"
+          className={clsx(
+            "w-6 h-6 mt-2",
+            "lg:w-14 lg:h-14 ",
+            "2xl:w-20 2xl:h-20 2xl:mt-6"
+          )}
+          id="imageText"
+        />
       )}
     </div>
   );

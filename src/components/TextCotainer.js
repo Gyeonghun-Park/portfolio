@@ -15,7 +15,7 @@ const TextCotainer = ({ sentences, isTitle }) => {
 
   return (
     <div className="relative p-12">
-      <Tag top="3" left="5" text="h1" />
+      <Tag top="7" left="5" text="h1" />
       {sentences.map((sentence, i) => {
         const tmp = textFactory(sentence).map((text, j) => {
           milliseconds += 100;

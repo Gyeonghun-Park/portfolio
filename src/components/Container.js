@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Tag from "./Tag";
 
 const Container = ({ left, right }) => {
@@ -6,7 +7,12 @@ const Container = ({ left, right }) => {
       <Tag top="0" left="10" text="html" />
       <Tag top="5" left="16" text="body" />
 
-      <div className="w-full h-full grid grid-cols-2 justify-items-center items-center">
+      <div
+        className={clsx(
+          "w-full h-full grid grid-rows-2 justify-items-center items-center",
+          "xl:grid-cols-2 xl:grid-rows-1"
+        )}
+      >
         <div className="flex justify-center items-center w-full h-full">
           {left}
         </div>
