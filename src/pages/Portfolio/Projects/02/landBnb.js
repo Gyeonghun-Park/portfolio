@@ -9,28 +9,34 @@ import {
   awsIcon,
 } from "../../../../iconList";
 import cover from "./cover.png";
-import first from "./first.gif";
-import second from "./second.gif";
-import third from "./third.png";
+import first from "./first.png";
+import second from "./second.png";
+import third from "./third.gif";
+import fourth from "./fourth.gif";
+import fifth from "./fifth.png";
 
 const landBnb = {
   cover: cover,
   previews: [
     {
       preview: first,
-      desc: "Real-time interactions between users",
-      src:
-        "https://thawing-journey-31791.herokuapp.com/videos/6000e50c9fe3e900629e2e4a",
+      desc: "Home page",
     },
     {
       preview: second,
-      desc: "E2E Testing + Unit Testing",
-      src:
-        "https://thawing-journey-31791.herokuapp.com/videos/6000e8a79fe3e900629e2e4c",
+      desc: "Room detail page",
     },
     {
       preview: third,
-      desc: "Data visualization with Victory",
+      desc: "Translation",
+    },
+    {
+      preview: fourth,
+      desc: "Login & Logout",
+    },
+    {
+      preview: fifth,
+      desc: "Make a Reservation",
     },
   ],
   title: "Landbnb",
