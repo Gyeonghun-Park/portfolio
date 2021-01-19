@@ -9,15 +9,15 @@ import weatherApp from "./08/weatherApp";
 import coronaDashboard from "./09/coronaDashboard";
 
 export const projectList = [
-  guberEats,
-  landBnb,
-  landBnbApp,
-  wetube,
   gwitter,
   getflix,
   govies,
   weatherApp,
   coronaDashboard,
+  guberEats,
+  landBnb,
+  landBnbApp,
+  wetube,
 ];
 
 export const backGrounds = [

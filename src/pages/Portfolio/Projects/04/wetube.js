@@ -9,28 +9,29 @@ import {
   mongodbIcon,
 } from "../../../../iconList";
 import cover from "./cover.png";
-import first from "./first.gif";
-import second from "./second.gif";
+import first from "./first.png";
+import second from "./second.png";
 import third from "./third.png";
+import fourth from "./fourth.png";
 
 const wetube = {
   cover: cover,
   previews: [
     {
       preview: first,
-      desc: "Real-time interactions between users",
-      src:
-        "https://thawing-journey-31791.herokuapp.com/videos/6000e50c9fe3e900629e2e4a",
+      desc: "Main Page",
     },
     {
       preview: second,
-      desc: "E2E Testing + Unit Testing",
-      src:
-        "https://thawing-journey-31791.herokuapp.com/videos/6000e8a79fe3e900629e2e4c",
+      desc: "User Profuke Page",
     },
     {
       preview: third,
-      desc: "Data visualization with Victory",
+      desc: "Upload Page",
+    },
+    {
+      preview: fourth,
+      desc: "Video Detail Page",
     },
   ],
   title: "Wetube",

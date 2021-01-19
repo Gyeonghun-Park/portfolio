@@ -1,64 +1,58 @@
-import { reactIcon, cssIcon, firebaseIcon } from "../../../../iconList";
+import {
+  reactIcon,
+  cssIcon,
+  javascriptIcon,
+  expoIcon,
+} from "../../../../iconList";
 import cover from "./cover.png";
 import first from "./first.gif";
 import second from "./second.gif";
 import third from "./third.png";
+import fourth from "./fourth.png";
 
 const govies = {
   cover: cover,
   previews: [
     {
       preview: first,
-      desc: "Real-time interactions between users",
-      src:
-        "https://thawing-journey-31791.herokuapp.com/videos/6000e50c9fe3e900629e2e4a",
+      desc: "Main Page",
     },
     {
       preview: second,
-      desc: "E2E Testing + Unit Testing",
-      src:
-        "https://thawing-journey-31791.herokuapp.com/videos/6000e8a79fe3e900629e2e4c",
+      desc: "Upcoming Movie Slider",
     },
     {
       preview: third,
-      desc: "Data visualization with Victory",
+      desc: "Search Movies and TV Shows",
+    },
+    {
+      preview: fourth,
+      desc: "Movie / TV Show Details Page",
     },
   ],
   title: "Govies",
-  icons: [reactIcon, cssIcon, firebaseIcon],
+  icons: [reactIcon, cssIcon, javascriptIcon, expoIcon],
   cfs: [
     {
       title: "Concept",
       contents: [
-        "Implement idea prototypes incredibly quickly.",
-        "Without backend coding! implement authentication and real-time DB ",
+        "Implement beautiful Tri-platform (iOS, Android, Web) Application built with React Native & React Native Web.",
       ],
     },
     {
-      title: "Services",
+      title: "Movies",
       contents: [
-        "Firebase",
-        "Cloud Firestore",
-        "NoSQL Realtime, Query, Filter",
-        "Firebase Authentication",
-        "Google Cloud Storage",
-      ],
-    },
-    {
-      title: "Features",
-      contents: [
-        "Email, Google, Github, Social Authentication",
-        "Tweet CRUD",
-        "Protected Pages",
-        "Profile Page",
-        "File Upload",
-        "Deploy",
-        "API Key Security",
+        "Upcoming Movie Slider",
+        "See Latest Movies",
+        "Search Movies and TV Shows",
+        "See Movie / TV Show Details",
+        "in-app Broswer",
+        "Discovery Cards Screen",
       ],
     },
   ],
-  demo: "https://gyeonghun-park.github.io/gwitter/#/",
-  code: "https://github.com/Gyeonghun-Park/gwitter",
+  demo: "",
+  code: "https://github.com/Gyeonghun-Park/govies",
 };
 
 export default govies;

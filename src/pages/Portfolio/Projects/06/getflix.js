@@ -1,7 +1,7 @@
-import { reactIcon, cssIcon, firebaseIcon } from "../../../../iconList";
+import { reactIcon, cssIcon, javascriptIcon } from "../../../../iconList";
 import cover from "./cover.png";
-import first from "./first.gif";
-import second from "./second.gif";
+import first from "./first.png";
+import second from "./second.png";
 import third from "./third.png";
 
 const getflix = {
@@ -9,56 +9,38 @@ const getflix = {
   previews: [
     {
       preview: first,
-      desc: "Real-time interactions between users",
-      src:
-        "https://thawing-journey-31791.herokuapp.com/videos/6000e50c9fe3e900629e2e4a",
+      desc: "Main Page",
     },
     {
       preview: second,
-      desc: "E2E Testing + Unit Testing",
-      src:
-        "https://thawing-journey-31791.herokuapp.com/videos/6000e8a79fe3e900629e2e4c",
+      desc: "Search Movies and TV Shows",
     },
     {
       preview: third,
-      desc: "Data visualization with Victory",
+      desc: "Movie / TV Show Details",
     },
   ],
   title: "Getflix",
-  icons: [reactIcon, cssIcon, firebaseIcon],
+  icons: [reactIcon, cssIcon, javascriptIcon],
   cfs: [
     {
       title: "Concept",
-      contents: [
-        "Implement idea prototypes incredibly quickly.",
-        "Without backend coding! implement authentication and real-time DB ",
-      ],
-    },
-    {
-      title: "Services",
-      contents: [
-        "Firebase",
-        "Cloud Firestore",
-        "NoSQL Realtime, Query, Filter",
-        "Firebase Authentication",
-        "Google Cloud Storage",
-      ],
+      contents: ["Practicing React and ES6 by building a Movie Discovery App."],
     },
     {
       title: "Features",
       contents: [
-        "Email, Google, Github, Social Authentication",
-        "Tweet CRUD",
-        "Protected Pages",
-        "Profile Page",
-        "File Upload",
-        "Deploy",
-        "API Key Security",
+        "List Movies",
+        "TV Shows",
+        "The MovieDB API",
+        "Container / Presenter Pattern",
+        "To Do List with useReducer",
+        "Deployment to Netlify",
       ],
     },
   ],
-  demo: "https://gyeonghun-park.github.io/gwitter/#/",
-  code: "https://github.com/Gyeonghun-Park/gwitter",
+  demo: "https://Gyeonghun-Park.github.io/getflix",
+  code: "https://github.com/Gyeonghun-Park/getflix",
 };
 
 export default getflix;
