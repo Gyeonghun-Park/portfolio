@@ -1,6 +1,6 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
-import markerIcon from "../../../img/Marker.svg";
+import markerIcon from "../../../img/marker.svg";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 
