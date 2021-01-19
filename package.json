@@ -27,8 +27,11 @@
     "webfontloader": "^1.6.28"
   },
   "scripts": {
-    "start": "yarn run watch:css && react-scripts start",
-    "build": "yarn run build:css && start react-scripts build",
+    "tailwind:prodbuild": "NODE_ENV=production npm run tailwind:build",
+    "tailwind:build": "tailwind build ./src/styles/tailwind.css -o ./src/styles/styles.css",
+    "start": "yarn tailwind:build & react-scripts start",
+    "build": "CI=false react-scripts build",
+    "prebuild": "yarn tailwind:prodbuild",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css",

@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-home;
+    background-color: #222222;
     @apply h-full;
   }
 
