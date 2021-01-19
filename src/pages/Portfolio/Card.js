@@ -2,7 +2,12 @@ import Modal from "react-modal";
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faCode, faEye } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBan,
+  faCheck,
+  faCode,
+  faEye,
+} from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 
 const getWindowDimensions = () => {
@@ -210,7 +215,7 @@ const Card = ({
                         </button>
                       </a>
                     )}
-                    <span className="mt-5 text-2xl text-white">{`${preview.desc}`}</span>
+                    <span className="mt-5 text-2xl text-white text-center">{`${preview.desc}`}</span>
                     <span className="my-auto text-xl text-gray-300">{`${
                       i + 1
                     } / ${previews.length}`}</span>
@@ -270,12 +275,21 @@ const Card = ({
                     ))}
                   </div>
                   <div className="grid items-center grid-cols-2 my-auto justify-items-center">
-                    <a target="_blank" rel="noreferrer" href={demo}>
-                      <button className="p-2 bg-gray-700 w-36">
-                        <FontAwesomeIcon icon={faEye} className="mr-3" />
-                        DEMO
+                    {demo === "" ? (
+                      <button className="p-2 bg-home w-36 focus:outline-none">
+                        <FontAwesomeIcon
+                          icon={faBan}
+                          className="font-extrabold"
+                        />
                       </button>
-                    </a>
+                    ) : (
+                      <a target="_blank" rel="noreferrer" href={demo}>
+                        <button className="p-2 bg-gray-700 w-36">
+                          <FontAwesomeIcon icon={faEye} className="mr-3" />
+                          DEMO
+                        </button>
+                      </a>
+                    )}
                     <a target="_blank" rel="noreferrer" href={code}>
                       <button className="p-2 bg-gray-700 w-36">
                         <FontAwesomeIcon icon={faCode} className="mr-3" />

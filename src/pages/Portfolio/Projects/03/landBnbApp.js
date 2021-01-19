@@ -8,27 +8,21 @@ import {
 } from "../../../../iconList";
 import cover from "./cover.png";
 import first from "./first.gif";
-import second from "./second.gif";
-import third from "./third.png";
+import second from "./second.png";
 
 const landBnbApp = {
   cover: cover,
   previews: [
     {
       preview: first,
-      desc: "Real-time interactions between users",
+      desc:
+        "User authentication, search, favorites, maps with React native & Django Rest Framework",
       src:
         "https://thawing-journey-31791.herokuapp.com/videos/6000e50c9fe3e900629e2e4a",
     },
     {
       preview: second,
-      desc: "E2E Testing + Unit Testing",
-      src:
-        "https://thawing-journey-31791.herokuapp.com/videos/6000e8a79fe3e900629e2e4c",
-    },
-    {
-      preview: third,
-      desc: "Data visualization with Victory",
+      desc: "Server-Side Session with Django Rest Framework",
     },
   ],
   title: "Landbnb App",
