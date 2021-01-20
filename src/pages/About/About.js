@@ -14,7 +14,7 @@ const About = () => {
             "xl:pb-0"
           )}
         >
-          <div className={clsx("", "xl:w-10/12")}>
+          <div className={clsx("xl:w-10/12")}>
             <TextCotainer sentences={["About Me"]} isTitle />
           </div>
           <div
