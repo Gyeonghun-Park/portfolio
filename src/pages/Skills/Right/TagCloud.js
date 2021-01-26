@@ -87,7 +87,6 @@ const TagCloud = () => {
   const resize = () => {
     canvas.width = targetRef.current.clientWidth;
     canvas.height = targetRef.current.clientHeight;
-    console.log(targetRef.current.clientHeight);
   };
 
   return (
