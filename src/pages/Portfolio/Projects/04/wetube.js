@@ -23,7 +23,7 @@ const wetube = {
     },
     {
       preview: second,
-      desc: "User Profuke Page",
+      desc: "User Profile Page",
     },
     {
       preview: third,
