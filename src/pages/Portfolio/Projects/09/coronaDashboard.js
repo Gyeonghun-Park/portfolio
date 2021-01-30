@@ -1,4 +1,4 @@
-import { reactIcon, cssIcon, firebaseIcon } from "../../../../iconList";
+import { pythonIcon, htmlIcon } from "../../../../iconList";
 import cover from "./cover.png";
 import first from "./first.png";
 import second from "./second.png";
@@ -16,7 +16,7 @@ const coronaDashboard = {
     },
   ],
   title: "Corona Dashboard",
-  icons: [reactIcon, cssIcon, firebaseIcon],
+  icons: [pythonIcon, htmlIcon],
   cfs: [
     {
       title: "Concept",
