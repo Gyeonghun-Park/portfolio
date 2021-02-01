@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import {
   faCog,
   faEnvelope,
@@ -52,7 +52,9 @@ const Navigation = withRouter(({ location: { pathname } }) => {
             "bg-nav h-9 text-gray-500 fixed inset-x-0 top-0 flex items-center justify-between pr-2"
           }
         >
-          <img src={Logo} alt="logo" className="w-10 h-10" />
+          <Link to="/">
+            <img src={Logo} alt="logo" className="w-10 h-10" />
+          </Link>
           <div className="grid grid-flow-col">
             <NavItem icon={faHome} path="/" name="HOME" />
             <NavItem icon={faUser} path="/about" name="ABOUT" />
@@ -101,10 +103,12 @@ const Navigation = withRouter(({ location: { pathname } }) => {
             "bg-nav box-border flex flex-col justify-between h-full w-16 text-gray-500"
           }
         >
-          <div className="grid bg-black justify-items-center">
-            <img src={Logo} alt="logo" className="mt-2" />
-            <span className="pb-2 text-xs font-bold text-gray-300">Park</span>
-          </div>
+          <Link to="/">
+            <div className="grid bg-black justify-items-center">
+              <img src={Logo} alt="logo" className="mt-2" />
+              <span className="pb-2 text-xs font-bold text-gray-300">Park</span>
+            </div>
+          </Link>
           <div className="grid gap-10 text-xl">
             <NavItem icon={faHome} path="/" name="HOME" />
             <NavItem icon={faUser} path="/about" name="ABOUT" />
@@ -112,7 +116,6 @@ const Navigation = withRouter(({ location: { pathname } }) => {
             <NavItem icon={faEye} path="/portfolio" name="WORK" />
             <NavItem icon={faEnvelope} path="/contact" name="CONTACT" />
           </div>
-          {/* wprapping with div to make it easy to click */}
           <div className="grid gap-5 mb-8 justify-items-center">
             <FontAwesomeIcon
               icon={faGithub}
