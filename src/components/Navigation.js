@@ -117,18 +117,36 @@ const Navigation = withRouter(({ location: { pathname } }) => {
             <NavItem icon={faEnvelope} path="/contact" name="CONTACT" />
           </div>
           <div className="grid gap-5 mb-8 justify-items-center">
-            <FontAwesomeIcon
-              icon={faGithub}
-              className="transition hover:text-prime"
-            />
-            <FontAwesomeIcon
-              icon={faFacebookF}
-              className="transition hover:text-prime"
-            />
-            <FontAwesomeIcon
-              icon={faLinkedinIn}
-              className="transition hover:text-prime"
-            />
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://github.com/Gyeonghun-Park"
+            >
+              <FontAwesomeIcon
+                icon={faGithub}
+                className="transition hover:text-prime"
+              />
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.facebook.com/profile.php?id=100010395939047"
+            >
+              <FontAwesomeIcon
+                icon={faFacebookF}
+                className="transition hover:text-prime"
+              />
+            </a>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://www.linkedin.com/in/gyeonghun-park-095971193/"
+            >
+              <FontAwesomeIcon
+                icon={faLinkedinIn}
+                className="transition hover:text-prime"
+              />
+            </a>
           </div>
         </div>
       )}
