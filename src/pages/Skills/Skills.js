@@ -64,7 +64,7 @@ const Skills = () => {
             )}
           >
             I know the importance of staying on top of the latest development
-            trends. From DevSecOps to low-code apps, software development trends
+            trends. From DevOps to low-code apps, software development trends
             change as fast as technology itself. So I am experiencing as many
             things as I can to adapt to the fast-changing trends at any time.
           </div>
