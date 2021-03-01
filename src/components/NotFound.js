@@ -5,6 +5,7 @@ const NotFound = () => {
     <div className="flex justify-center w-full h-full font-bold text-white items-center text-lg">
       <span className="pr-2">Not found 🤔 </span>
       <Link to="/" className="underline text-prime">
+        {" "}
         back to home
       </Link>
     </div>
