@@ -6,7 +6,7 @@ const NotFound = () => {
       <span className="pr-2">Not found 🤔</span>
       <Link to="/" className="underline text-prime">
         {" "}
-        back to home &rarr;
+        Back to home &rarr;
       </Link>
     </div>
   );
